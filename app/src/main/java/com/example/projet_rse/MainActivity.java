@@ -108,10 +108,10 @@ public class MainActivity extends AppCompatActivity
         //TODO : Changer les icones Flaticon (package, history)
         switch(id){
             case R.id.nav_camera:
-                this.showFragment(FRAGMENT_HISTORY);
+                this.showFragment(FRAGMENT_RETURNPACKAGE);
                 break;
             case R.id.nav_gallery:
-                this.showFragment(FRAGMENT_RETURNPACKAGE);
+                this.showFragment(FRAGMENT_HISTORY);
                 break;
         }
 
