@@ -60,7 +60,7 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
         History history = getItem(position);
         viewHolder.Date.setText(history.getDate());
         viewHolder.PackageNumber.setText(history.getPackagesNumber());
-//        viewHolder.PurchasingVoucherAmount.setText(history.getPurchasingVoucher().getAmount());
+        viewHolder.PurchasingVoucherAmount.setText(history.getPurchasingVoucher().getAmount()+"€");
         return row;
     }
 

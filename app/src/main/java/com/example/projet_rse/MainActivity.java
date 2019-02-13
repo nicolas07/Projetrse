@@ -25,11 +25,13 @@ public class MainActivity extends AppCompatActivity
     // 1 - Declare fragment handled by Navigation Drawer
     private Fragment fragmentHistory;
     private Fragment fragmentReturnPackage;
+    private Fragment fragmentUserAccount;
 
     //FOR DATAS
     // 2 - Identify each fragment with a number
     private static final int FRAGMENT_HISTORY = 0;
     private static final int FRAGMENT_RETURNPACKAGE = 1;
+    private static final int FRAGMENT_USERACCOUNT = 2;
 
 
     @Override
@@ -107,11 +109,14 @@ public class MainActivity extends AppCompatActivity
 
         //TODO : Changer les icones Flaticon (package, history)
         switch(id){
-            case R.id.nav_camera:
+            case R.id.nav_returnPackage:
                 this.showFragment(FRAGMENT_RETURNPACKAGE);
                 break;
-            case R.id.nav_gallery:
+            case R.id.nav_history:
                 this.showFragment(FRAGMENT_HISTORY);
+                break;
+            case R.id.nav_useraccount:
+                this.showFragment(FRAGMENT_USERACCOUNT);
                 break;
         }
 
@@ -128,6 +133,9 @@ public class MainActivity extends AppCompatActivity
             case FRAGMENT_RETURNPACKAGE:
                 this.showReturnPackageFragment();
                 break;
+            case FRAGMENT_USERACCOUNT:
+                this.showUserAccountFragment();
+                break;
             default:
                 break;
         }
@@ -141,6 +149,11 @@ public class MainActivity extends AppCompatActivity
     private void showReturnPackageFragment(){
         if (this.fragmentReturnPackage == null) this.fragmentReturnPackage = ReturnPackageFragment.newInstance();
         this.startTransactionFragment(this.fragmentReturnPackage);
+    }
+
+    private void showUserAccountFragment(){
+        if (this.fragmentUserAccount == null) this.fragmentUserAccount = UserAccountFragment.newInstance();
+        this.startTransactionFragment(this.fragmentUserAccount);
     }
 
     private void startTransactionFragment(Fragment fragment){
