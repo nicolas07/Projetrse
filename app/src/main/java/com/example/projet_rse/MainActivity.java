@@ -17,6 +17,7 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    // TODO: splash screen
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;

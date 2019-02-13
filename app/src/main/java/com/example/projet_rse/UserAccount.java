@@ -3,16 +3,10 @@ package com.example.projet_rse;
 public class UserAccount {
 
     private String Name;
-    private String ForName;
+    private String FirstName;
     private String Address;
     private String Password;
-
-    public UserAccount(String name, String forName, String address, String password) {
-        Name = name;
-        ForName = forName;
-        Address = address;
-        Password = password;
-    }
+    private String Email;
 
     public String getName() {
         return Name;
@@ -22,12 +16,12 @@ public class UserAccount {
         Name = name;
     }
 
-    public String getForName() {
-        return ForName;
+    public String getFirstName() {
+        return FirstName;
     }
 
-    public void setForName(String forName) {
-        ForName = forName;
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
     }
 
     public String getAddress() {
@@ -44,5 +38,21 @@ public class UserAccount {
 
     public void setPassword(String password) {
         Password = password;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
+
+    public UserAccount(String name, String firstName, String address, String password, String email) {
+        Name = name;
+        FirstName = firstName;
+        Address = address;
+        Password = password;
+        Email = email;
     }
 }
