@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class UserAccountFragment extends Fragment {
 
@@ -34,6 +35,9 @@ public class UserAccountFragment extends Fragment {
         Edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Toast.makeText(getActivity(),Integer.toString(v.getId()),Toast.LENGTH_LONG).show();
+
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
                 final EditText edittext = new EditText(getActivity());
                 alert.setMessage("Enter Your Message");
@@ -41,14 +45,14 @@ public class UserAccountFragment extends Fragment {
 
                 alert.setView(edittext);
                 edittext.setHint(Name.getText().toString());
-                alert.setPositiveButton("Yes Option", new DialogInterface.OnClickListener() {
+                alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
 
                         String YouEditTextValue = edittext.getText().toString();
                     }
                 });
 
-                alert.setNegativeButton("No Option", new DialogInterface.OnClickListener() {
+                alert.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         // what ever you want to do with No option.
                     }

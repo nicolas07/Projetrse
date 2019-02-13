@@ -8,7 +8,6 @@
     android:background="#EDD9CF">
 
     <TableLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp">
@@ -41,21 +40,41 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
             android:background="@drawable/ic_menu_send" />
+            <TextView
+                android:id="@+id/tv_VorName"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@android:color/holo_green_dark"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/bt_editVorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Button" />
 
         </TableRow>
         <TableRow android:layout_marginTop="8dp">
             <TextView
                 android:layout_weight="1"
-                android:text="mot de passe boutton"
+                android:text="mot de passe "
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-
-            <Spinner
-                android:layout_marginRight="20dp"
+            <TextView
+                android:id="@+id/tvPassword"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:textColor="@android:color/holo_green_dark"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:inputType="textPassword" />
+            <Button
+                android:id="@+id/bt_editPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Button" />
+
         </TableRow>
         <TableRow>
             <TextView
@@ -65,15 +84,20 @@
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="18sp"
                 android:textStyle="bold" />
-            <EditText
-                android:layout_marginLeft="16dp"
+            <TextView
+                android:id="@+id/tvAddress"
                 android:layout_weight="1"
-                android:background="#FFFF00"
-                android:hint="SSID"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textColorHint="@android:color/darker_gray"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:gravity="center"
+                android:textColor="@android:color/holo_green_dark"
+                android:textStyle="bold"
+                android:maxLines="4"
+                android:lines="4"/>
+            <Button
+                android:id="@+id/bt_editAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Button" />
         </TableRow>
 
 
