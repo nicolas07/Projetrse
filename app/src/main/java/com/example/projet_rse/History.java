@@ -1,5 +1,7 @@
 package com.example.projet_rse;
 
+import java.text.DecimalFormat;
+
 public class History {
 
     private static double UnitAmount = 0.3;
@@ -17,10 +19,10 @@ public class History {
     }
 
     private String CalculateAmount(String packagesNumber){
-        // TODO: Ajouter un arrondi
         int quantity = Integer.parseInt(packagesNumber);
         double sum = quantity*UnitAmount;
-        return String.valueOf(sum);
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return String.valueOf(twoDForm.format(sum));
     }
 
     public String getDate() {
