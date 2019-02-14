@@ -31,7 +31,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
     private UserAccount userAccount;
     private UserAccountHelper userAccountHelper;
 
-    // TODO : Imagebutton Edit
+    // TODO : Remplacer les Button par des Imagebutton
 
     public static UserAccountFragment newInstance() {
         return (new UserAccountFragment());

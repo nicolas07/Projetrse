@@ -16,6 +16,8 @@ import org.w3c.dom.Text;
 
 public class ReturnPackageFragment extends Fragment {
 
+    // TODO : Ajouter un date picker
+
     private EditText NumberPackages;
     private TextView Address;
     private Button ValidateReturn;

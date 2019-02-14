@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -61,8 +62,15 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         UserAccountHelper userAccountHelper = new UserAccountHelper(getApplicationContext());
-        userAccountHelper.StoreUserAccount(new UserAccount("Nom","Prénom","14 rue Sarrette - 75014 Paris","sdfsgfdgdgdg","dffd@df.df"));
+        UserAccount userAccount = new UserAccount("Nom","Prénom","14 rue Sarrette - 75014 Paris","sdfsgfdgdgdg","dffd@df.df");
+        userAccountHelper.StoreUserAccount(userAccount);
 
+
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.tv_NavHeaderName);
+        navUsername.setText(userAccount.getName() +" "+ userAccount.getFirstName());
+        TextView navEMail = (TextView) headerView.findViewById(R.id.tv_NavHeaderEmail);
+        navEMail.setText(userAccount.getEmail());
         this.configureToolBar();
 
         this.configureDrawerLayout();
