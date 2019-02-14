@@ -1,9 +1,12 @@
 package com.example.projet_rse;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,13 +17,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    // TODO: double tap to exit / one tape go to fisrt fragment
+    // TODO: one tape go to fisrt fragment
     // TODO: splash screen
-    // TODO: Desactiver settings bar
-    //TODO: Style Material Design
+    // TODO: Style Material Design
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity
     private static final int FRAGMENT_RETURNPACKAGE = 1;
     private static final int FRAGMENT_USERACCOUNT = 2;
 
+    private boolean doubleBackToExitPressedOnce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +92,21 @@ public class MainActivity extends AppCompatActivity
         if (this.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             this.drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce=false;
+                }
+            }, 2000);
         }
     }
 
