@@ -29,28 +29,20 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
     private Button ButtonEditPassword;
 
     private UserAccount userAccount;
+    private UserAccountHelper userAccountHelper;
 
     // TODO : Imagebutton Edit
-    // TODO : Maj des TextView après dismiss des alertdialog
 
     public static UserAccountFragment newInstance() {
         return (new UserAccountFragment());
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        userAccount = new UserAccount("Nom","Prénom","14 rue Sarrette - 75014 Paris","sdfsgfdgdgdg","dffd@df.df");
+        userAccountHelper = new UserAccountHelper(getContext());
+
+        userAccount = userAccountHelper.GetUserAccount();
 
 
         View view = inflater.inflate(R.layout.fragment_useraccount, container, false);
@@ -76,10 +68,6 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
         ButtonEditEmail.setOnClickListener(this);
         ButtonEditPassword = (Button) view.findViewById(R.id.bt_EditPassword);
         ButtonEditPassword.setOnClickListener(this);
-
-        UserAccountHelper userAccountHelper = new UserAccountHelper(getActivity());
-        userAccountHelper.StoreUserAccount(userAccount);
-        UserAccount acc = userAccountHelper.GetUserAccount();
 
         return view;
     }
@@ -161,9 +149,20 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
             }
         });
 
+        alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                userAccountHelper.StoreUserAccount(userAccount);
+
+                TextViewName.setText(userAccount.getName());
+                TextViewFirstName.setText(userAccount.getFirstName());
+                TextViewAddress.setText(userAccount.getAddress());
+                TextViewEmail.setText(userAccount.getEmail());
+                TextViewPassword.setText(userAccount.getPassword());
+            }
+        });
+
         alert.show();
 
-        UserAccountHelper userAccountHelper = new UserAccountHelper(getActivity());
-        userAccountHelper.StoreUserAccount(userAccount);
     }
 }

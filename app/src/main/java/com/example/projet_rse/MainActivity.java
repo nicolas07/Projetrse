@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        UserAccountHelper userAccountHelper = new UserAccountHelper(getApplicationContext());
+        userAccountHelper.StoreUserAccount(new UserAccount("Nom","Prénom","14 rue Sarrette - 75014 Paris","sdfsgfdgdgdg","dffd@df.df"));
 
         this.configureToolBar();
 
