@@ -22,7 +22,7 @@ public class History {
         int quantity = Integer.parseInt(packagesNumber);
         double sum = quantity*UnitAmount;
         DecimalFormat twoDForm = new DecimalFormat("#.##");
-        return String.valueOf(twoDForm.format(sum));
+        return String.valueOf(twoDForm.format(sum)+"€");
     }
 
     public String getDate() {

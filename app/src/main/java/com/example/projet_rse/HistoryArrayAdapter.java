@@ -66,7 +66,7 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
         History history = getItem(position);
         viewHolder.TextViewDate.setText(history.getDate());
         viewHolder.TextViewPackageNumber.setText(history.getPackagesNumber());
-        viewHolder.TextViewAmount.setText(history.getAmount()+"€");
+        viewHolder.TextViewAmount.setText(history.getAmount());
         viewHolder.TextViewAdress.setText(history.getAddress());
         viewHolder.TextViewAdress.setLines(history.GetAddressLines());
         return row;

@@ -1,18 +1,36 @@
 package com.example.projet_rse;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.journeyapps.barcodescanner.BarcodeEncoder;
+
+import java.util.EnumMap;
+import java.util.Map;
+
 
 public class HistoryFragment extends Fragment {
+
+    private static final int WHITE = 0xFFFFFFFF;
+    private static final int BLACK = 0xFF000000;
 
     private static final String TAG = "HistoryListFragment";
     private HistoryArrayAdapter historyArrayAdapter;
@@ -45,9 +63,39 @@ public class HistoryFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 History history = (History) listView.getItemAtPosition(position);
                 Toast.makeText(getActivity(),history.getPackagesNumber().toString(),Toast.LENGTH_LONG).show();
+
+                LinearLayout l = new LinearLayout(getActivity());
+                l.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                l.setOrientation(LinearLayout.VERTICAL);
+
+                BarCodeHelper barCodeHelper = new BarCodeHelper();
+                Bitmap bitmap = barCodeHelper.GenerateBarCode();
+                ImageView iv = new ImageView(getActivity());
+                iv.setImageBitmap(bitmap);
+
+                l.addView(iv);
+
+                //barcode text
+                TextView tv = new TextView(getActivity());
+                tv.setGravity(Gravity.CENTER_HORIZONTAL);
+                tv.setText(history.getAmount() + " (Valable jusqu'au 06/06/2019)");
+
+                l.addView(tv);
+
+                android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(getActivity());
+                alert.setTitle("Bon d'achat");
+                alert.setView(l);
+                alert.setPositiveButton("Retour", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                    }
+                });
+                alert.show();
+
             }
         });
 
         return view;
     }
+
 }
