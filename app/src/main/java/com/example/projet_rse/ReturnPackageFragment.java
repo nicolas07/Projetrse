@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -30,6 +32,8 @@ public class ReturnPackageFragment extends Fragment {
     private Button ButtonEditReturnDate;
     private Button ButtonValidateReturn;
 
+    private StorageHelper storageHelper;
+
         public static ReturnPackageFragment newInstance() {
             return (new ReturnPackageFragment());
         }
@@ -37,30 +41,39 @@ public class ReturnPackageFragment extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+            storageHelper = new StorageHelper(getContext());
+
             View view = inflater.inflate(R.layout.fragment_returnpackage, container, false);
             EditTextReturnPackageNumber = (EditText) view.findViewById(R.id.et_ReturnPackageNumber);
-            SharedPreferences settings = this.getActivity().getSharedPreferences("PREFS", 0);
-            EditTextReturnPackageNumber.setText(settings.getString("value", ""));
+            EditTextReturnPackageNumber.setText("0");
+            UserAccount userAccount = storageHelper.GetUserAccount();
 
             TextViewReturnAddress = (TextView) view.findViewById(R.id.tv_ReturnAddress);
-            TextViewReturnAddress.setText("test adresse");
+            TextViewReturnAddress.setText(userAccount.getAddress());
             ButtonValidateReturn = (Button) view.findViewById(R.id.bt_ValidateReturn);
             ButtonValidateReturn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int n = Integer.parseInt(EditTextReturnPackageNumber.getText().toString());
+
                     String message = null;
-                    if(n > 0 && TextUtils.isEmpty(TextViewReturnAddress.getText().toString())){
-                        message = "Retour validée";
+                    if(n > 0 && !TextUtils.isEmpty(TextViewReturnAddress.getText().toString())){
+                        message = "Demande Retour validée";
+                        storageHelper.StoreHistory(new History(TextViewReturnDate.getText().toString(),EditTextReturnPackageNumber.getText().toString()));
                     } else {
-                        message = "Erreur";
+                        message = "Une erreur s'est produite";
                     }
                     Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
 
 
                 }
             });
-
+            String date = "";
+            TextViewReturnDate = (TextView) view.findViewById(R.id.tv_ReturnDate);
+            Date todayDate = Calendar.getInstance().getTime();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            String todayString = formatter.format(todayDate);
+            TextViewReturnDate.setText(todayString);
             ButtonEditReturnDate = (Button) view.findViewById(R.id.bt_EditReturnDate);
             ButtonEditReturnDate.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -76,8 +89,8 @@ public class ReturnPackageFragment extends Fragment {
                             int year = datePicker.getYear();
                             int mon = datePicker.getMonth();
                             int day = datePicker.getDayOfMonth();
-                            String date = String.valueOf(year) + "/" + String.valueOf(mon) + "/" + String.valueOf(year);
-                            Toast.makeText(getContext(),date,Toast.LENGTH_LONG).show();
+                            String date = String.valueOf(day) + "/" + String.valueOf(mon) + "/" + String.valueOf(year);
+                            TextViewReturnDate.setText(date);
                         }
                     });
                 alert.show();

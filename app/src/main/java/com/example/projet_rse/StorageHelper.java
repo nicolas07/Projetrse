@@ -54,6 +54,14 @@ public class StorageHelper {
         prefsEditor.commit();
     }
 
+    public void StoreHistory(History history){
+
+        List<History> histories = GetHistories();
+        histories.add(history);
+        StoreHistories(histories);
+
+    }
+
     public void InitData(){
 
         UserAccount userAccount = new UserAccount("DUPONT", "Marcel", "28 rue Dupont - 75020 Paris","azerty","m.dupont@gmail.com");
