@@ -24,8 +24,6 @@ import java.util.GregorianCalendar;
 
 public class ReturnPackageFragment extends Fragment {
 
-    // TODO : ajouter \n TextView
-
     private EditText EditTextReturnPackageNumber;
     private TextView TextViewReturnAddress;
     private TextView TextViewReturnDate;
@@ -50,6 +48,7 @@ public class ReturnPackageFragment extends Fragment {
 
             TextViewReturnAddress = (TextView) view.findViewById(R.id.tv_ReturnAddress);
             TextViewReturnAddress.setText(userAccount.getAddress());
+            TextViewReturnAddress.setLines(userAccount.GetAddressLines());
             ButtonValidateReturn = (Button) view.findViewById(R.id.bt_ValidateReturn);
             ButtonValidateReturn.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -59,7 +58,7 @@ public class ReturnPackageFragment extends Fragment {
                     String message = null;
                     if(n > 0 && !TextUtils.isEmpty(TextViewReturnAddress.getText().toString())){
                         message = "Demande Retour validée";
-                        storageHelper.StoreHistory(new History(TextViewReturnDate.getText().toString(),EditTextReturnPackageNumber.getText().toString()));
+                        storageHelper.StoreHistory(new History(TextViewReturnDate.getText().toString(),EditTextReturnPackageNumber.getText().toString(),TextViewReturnAddress.getText().toString()));
                     } else {
                         message = "Une erreur s'est produite";
                     }

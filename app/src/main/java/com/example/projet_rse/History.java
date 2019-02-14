@@ -7,10 +7,12 @@ public class History {
     private String Date;
     private String PackagesNumber;
     private String Amount;
+    private String Address;
 
-    public History(String date, String packagesNumber) {
+    public History(String date, String packagesNumber, String address) {
         Date = date;
         PackagesNumber = packagesNumber;
+        Address = address;
         Amount = CalculateAmount(packagesNumber);
     }
 
@@ -40,6 +42,27 @@ public class History {
     public String getAmount() {
         return Amount;
     }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public int GetAddressLines()
+    {
+        int count = 0;
+
+        for(int i=0; i < Address.length(); i++)
+        {    if(Address.charAt(i) == '\n')
+            count++;
+        }
+
+        return count+1;
+    }
+
 }
 
 

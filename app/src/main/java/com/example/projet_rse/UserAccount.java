@@ -55,4 +55,16 @@ public class UserAccount {
         Password = password;
         Email = email;
     }
+
+    public int GetAddressLines()
+    {
+        int count = 0;
+
+        for(int i=0; i < Address.length(); i++)
+        {    if(Address.charAt(i) == '\n')
+            count++;
+        }
+
+        return count+1;
+    }
 }

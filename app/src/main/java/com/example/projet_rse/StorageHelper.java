@@ -64,13 +64,13 @@ public class StorageHelper {
 
     public void InitData(){
 
-        UserAccount userAccount = new UserAccount("DUPONT", "Marcel", "28 rue Dupont - 75020 Paris","azerty","m.dupont@gmail.com");
+        UserAccount userAccount = new UserAccount("DUPONT", "Marcel", "28 rue Dupont \n 75020 Paris","azerty","m.dupont@gmail.com");
         StoreUserAccount(userAccount);
 
         List<History> histories = new ArrayList<History>();
 
         for(int i=0; i < 10;i++){
-            histories.add(new History("14/02/2019",Integer.toString(i)));
+            histories.add(new History("14/02/2019",Integer.toString(i),"25 rue du Pont \n 75050 PARIS"));
         }
         StoreHistories(histories);
 

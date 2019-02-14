@@ -53,6 +53,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
         TextViewName.setText(userAccount.getName());
         TextViewFirstName.setText(userAccount.getFirstName());
         TextViewAddress.setText(userAccount.getAddress());
+        TextViewAddress.setLines(userAccount.GetAddressLines());
         TextViewEmail.setText(userAccount.getEmail());
         TextViewPassword.setText(userAccount.getPassword());
 
@@ -155,6 +156,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                 TextViewName.setText(userAccount.getName());
                 TextViewFirstName.setText(userAccount.getFirstName());
                 TextViewAddress.setText(userAccount.getAddress());
+                TextViewAddress.setLines(userAccount.GetAddressLines());
                 TextViewEmail.setText(userAccount.getEmail());
                 TextViewPassword.setText(userAccount.getPassword());
             }

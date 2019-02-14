@@ -20,6 +20,7 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
         TextView TextViewDate;
         TextView TextViewPackageNumber;
         TextView TextViewAmount;
+        TextView TextViewAdress;
     }
 
     public HistoryArrayAdapter(Context context, int textViewResourceId) {
@@ -57,6 +58,7 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
             viewHolder.TextViewDate = (TextView) row.findViewById(R.id.tv_Date);
             viewHolder.TextViewPackageNumber = (TextView) row.findViewById(R.id.tv_PackageNumber);
             viewHolder.TextViewAmount = (TextView) row.findViewById(R.id.tv_Amount);
+            viewHolder.TextViewAdress = (TextView) row.findViewById(R.id.tv_Address);
             row.setTag(viewHolder);
         } else {
             viewHolder = (HistoryViewHolder)row.getTag();
@@ -65,10 +67,14 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
         viewHolder.TextViewDate.setText(history.getDate());
         viewHolder.TextViewPackageNumber.setText(history.getPackagesNumber());
         viewHolder.TextViewAmount.setText(history.getAmount()+"€");
+        viewHolder.TextViewAdress.setText(history.getAddress());
+        viewHolder.TextViewAdress.setLines(history.GetAddressLines());
         return row;
     }
 
     public Bitmap decodeToBitmap(byte[] decodedByte) {
         return BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
     }
+
+
 }
