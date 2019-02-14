@@ -1,14 +1,24 @@
 package com.example.projet_rse;
 
 public class History {
+
+    private static double UnitAmount = 0.3;
+
     private String Date;
     private String PackagesNumber;
-    private PurchasingVoucher PurchasingVoucher;
+    private String Amount;
 
-    public History(String date, String packagesNumber, com.example.projet_rse.PurchasingVoucher purchasingVoucher) {
+    public History(String date, String packagesNumber) {
         Date = date;
         PackagesNumber = packagesNumber;
-        PurchasingVoucher = purchasingVoucher;
+        Amount = CalculateAmount(packagesNumber);
+    }
+
+    private String CalculateAmount(String packagesNumber){
+        // TODO: Ajouter un arrondi
+        int quantity = Integer.parseInt(packagesNumber);
+        double sum = quantity*UnitAmount;
+        return String.valueOf(sum);
     }
 
     public String getDate() {
@@ -27,12 +37,8 @@ public class History {
         PackagesNumber = packagesNumber;
     }
 
-    public com.example.projet_rse.PurchasingVoucher getPurchasingVoucher() {
-        return PurchasingVoucher;
-    }
-
-    public void setPurchasingVoucher(com.example.projet_rse.PurchasingVoucher purchasingVoucher) {
-        PurchasingVoucher = purchasingVoucher;
+    public String getAmount() {
+        return Amount;
     }
 }
 

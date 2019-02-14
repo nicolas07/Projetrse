@@ -18,6 +18,8 @@ public class HistoryFragment extends Fragment {
     private HistoryArrayAdapter historyArrayAdapter;
     private ListView listView;
 
+    private StorageHelper storageHelper;
+
     public static HistoryFragment newInstance() {
         return (new HistoryFragment());
     }
@@ -26,17 +28,16 @@ public class HistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.fragment_history, container, false);
 
+       storageHelper = new StorageHelper(getActivity());
+
         listView = (ListView) view.findViewById(R.id.lv_History);
 
         listView.addHeaderView(new View(getActivity()));
         listView.addFooterView(new View(getActivity()));
 
         historyArrayAdapter = new HistoryArrayAdapter(getActivity(), R.layout.list_item_history);
+        historyArrayAdapter.addList(storageHelper.GetHistories());
 
-        for (int i = 0; i < 10; i++) {
-            History card = new History(new SimpleDateFormat("dd-MM-yyyy").format(new Date()), String.valueOf(i), new PurchasingVoucher(new SimpleDateFormat("dd-MM-yyyy").format(new Date()),2));
-            historyArrayAdapter.add(card);
-        }
         listView.setAdapter(historyArrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

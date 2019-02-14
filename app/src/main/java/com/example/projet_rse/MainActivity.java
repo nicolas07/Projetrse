@@ -61,10 +61,9 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        UserAccountHelper userAccountHelper = new UserAccountHelper(getApplicationContext());
-        UserAccount userAccount = new UserAccount("Nom","Prénom","14 rue Sarrette - 75014 Paris","sdfsgfdgdgdg","dffd@df.df");
-        userAccountHelper.StoreUserAccount(userAccount);
-
+        StorageHelper storageHelper = new StorageHelper(getApplicationContext());
+        storageHelper.InitData();
+        UserAccount userAccount = storageHelper.GetUserAccount();
 
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = (TextView) headerView.findViewById(R.id.tv_NavHeaderName);

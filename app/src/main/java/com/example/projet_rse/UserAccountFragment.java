@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class UserAccountFragment extends Fragment implements View.OnClickListener {
 
@@ -29,7 +27,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
     private Button ButtonEditPassword;
 
     private UserAccount userAccount;
-    private UserAccountHelper userAccountHelper;
+    private StorageHelper storageHelper;
 
     // TODO : Remplacer les Button par des Imagebutton
 
@@ -40,9 +38,9 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        userAccountHelper = new UserAccountHelper(getContext());
+        storageHelper = new StorageHelper(getContext());
 
-        userAccount = userAccountHelper.GetUserAccount();
+        userAccount = storageHelper.GetUserAccount();
 
 
         View view = inflater.inflate(R.layout.fragment_useraccount, container, false);
@@ -152,7 +150,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
         alert.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
-                userAccountHelper.StoreUserAccount(userAccount);
+                storageHelper.StoreUserAccount(userAccount);
 
                 TextViewName.setText(userAccount.getName());
                 TextViewFirstName.setText(userAccount.getFirstName());
@@ -161,8 +159,8 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                 TextViewPassword.setText(userAccount.getPassword());
             }
         });
-
-        alert.show();
+        AlertDialog dial = alert.create();
+        dial.show();
 
     }
 }

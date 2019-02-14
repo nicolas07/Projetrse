@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HistoryArrayAdapter  extends ArrayAdapter<History> {
-    private static final String TAG = "CardArrayAdapter";
-    private List<History> cardList = new ArrayList<History>();
+    private static final String TAG = "HistoryArrayAdapter";
+    private List<History> Histories = new ArrayList<History>();
 
     static class HistoryViewHolder {
-        TextView Date;
-        TextView PackageNumber;
-        TextView PurchasingVoucherAmount;
+        TextView TextViewDate;
+        TextView TextViewPackageNumber;
+        TextView TextViewAmount;
     }
 
     public HistoryArrayAdapter(Context context, int textViewResourceId) {
@@ -28,18 +28,22 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
 
     @Override
     public void add(History object) {
-        cardList.add(object);
+        Histories.add(object);
         super.add(object);
+    }
+
+    public void addList(List<History> histories){
+        Histories.addAll(histories);
     }
 
     @Override
     public int getCount() {
-        return this.cardList.size();
+        return this.Histories.size();
     }
 
     @Override
     public History getItem(int index) {
-        return this.cardList.get(index);
+        return this.Histories.get(index);
     }
 
     @Override
@@ -50,17 +54,17 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.list_item_history, parent, false);
             viewHolder = new HistoryViewHolder();
-            viewHolder.Date = (TextView) row.findViewById(R.id.tv_Date);
-            viewHolder.PackageNumber = (TextView) row.findViewById(R.id.tv_PackageNumber);
-            viewHolder.PurchasingVoucherAmount = (TextView) row.findViewById(R.id.tv_Amount);
+            viewHolder.TextViewDate = (TextView) row.findViewById(R.id.tv_Date);
+            viewHolder.TextViewPackageNumber = (TextView) row.findViewById(R.id.tv_PackageNumber);
+            viewHolder.TextViewAmount = (TextView) row.findViewById(R.id.tv_Amount);
             row.setTag(viewHolder);
         } else {
             viewHolder = (HistoryViewHolder)row.getTag();
         }
         History history = getItem(position);
-        viewHolder.Date.setText(history.getDate());
-        viewHolder.PackageNumber.setText(history.getPackagesNumber());
-        viewHolder.PurchasingVoucherAmount.setText(history.getPurchasingVoucher().getAmount()+"€");
+        viewHolder.TextViewDate.setText(history.getDate());
+        viewHolder.TextViewPackageNumber.setText(history.getPackagesNumber());
+        viewHolder.TextViewAmount.setText(history.getAmount()+"€");
         return row;
     }
 
