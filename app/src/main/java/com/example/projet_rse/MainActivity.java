@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity
     // TODO: splash screen
     // TODO: Style Material Design
     // TODO : https://stackoverflow.com/questions/1492554/set-transparent-background-of-an-imageview-on-android
+    // TODO : https://www.iconfinder.com/icons/103173/edit_new_write_icon
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
