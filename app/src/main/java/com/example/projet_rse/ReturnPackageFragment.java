@@ -1,8 +1,6 @@
 package com.example.projet_rse;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -12,22 +10,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 public class ReturnPackageFragment extends Fragment {
 
     private EditText EditTextReturnPackageNumber;
     private TextView TextViewReturnAddress;
     private TextView TextViewReturnDate;
-    private Button ButtonEditReturnDate;
+    private ImageButton ImageButtonEditReturnDate;
     private Button ButtonValidateReturn;
 
     private StorageHelper storageHelper;
@@ -73,8 +69,8 @@ public class ReturnPackageFragment extends Fragment {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             String todayString = formatter.format(todayDate);
             TextViewReturnDate.setText(todayString);
-            ButtonEditReturnDate = (Button) view.findViewById(R.id.bt_EditReturnDate);
-            ButtonEditReturnDate.setOnClickListener(new View.OnClickListener() {
+            ImageButtonEditReturnDate = (ImageButton) view.findViewById(R.id.ib_EditReturnDate);
+            ImageButtonEditReturnDate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     View toto = LayoutInflater.from(getActivity())

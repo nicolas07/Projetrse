@@ -26,7 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Button"
+                style="@style/ButtonStyle"/>
         </TableRow>
         <TableRow>
             <TextView
@@ -43,7 +44,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Button"
+                style="@style/ButtonStyle"/>
         </TableRow>
         <TableRow>
             <TextView
@@ -61,7 +63,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Button"
+                style="@style/ButtonStyle"/>
 
         </TableRow>
         <TableRow>
@@ -79,7 +82,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Button"
+                style="@style/ButtonStyle"/>
         </TableRow>
         <TableRow>
             <TextView
@@ -96,7 +100,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button"/>
+                android:text="Button"
+                style="@style/ButtonStyle"/>
         </TableRow>
     </TableLayout>
 </LinearLayout>

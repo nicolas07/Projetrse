@@ -83,6 +83,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
 
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         final EditText SimpleEditText = new EditText(getActivity());
+
         alert.setView(SimpleEditText);
         switch (i){
             case R.id.bt_EditAddress:
