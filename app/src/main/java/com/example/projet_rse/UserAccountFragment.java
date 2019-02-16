@@ -5,11 +5,13 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class UserAccountFragment extends Fragment implements View.OnClickListener {
@@ -20,11 +22,11 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
     private TextView TextViewEmail;
     private TextView TextViewPassword;
 
-    private Button ButtonEditName;
-    private Button ButtonEditFirstName;
-    private Button ButtonEditAddress;
-    private Button ButtonEditEmail;
-    private Button ButtonEditPassword;
+    private ImageButton ImageButtonEditName;
+    private ImageButton ImageButtonEditFirstName;
+    private ImageButton ImageButtonEditAddress;
+    private ImageButton ImageButtonEditEmail;
+    private ImageButton ImageButtonEditPassword;
 
     private UserAccount userAccount;
     private StorageHelper storageHelper;
@@ -57,16 +59,16 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
         TextViewEmail.setText(userAccount.getEmail());
         TextViewPassword.setText(userAccount.getPassword());
 
-        ButtonEditName = (Button) view.findViewById(R.id.bt_EditName);
-        ButtonEditName.setOnClickListener(this);
-        ButtonEditFirstName = (Button) view.findViewById(R.id.bt_EditFirstName);
-        ButtonEditFirstName.setOnClickListener(this);
-        ButtonEditAddress = (Button) view.findViewById(R.id.bt_EditAddress);
-        ButtonEditAddress.setOnClickListener(this);
-        ButtonEditEmail= (Button) view.findViewById(R.id.bt_EditEMail);
-        ButtonEditEmail.setOnClickListener(this);
-        ButtonEditPassword = (Button) view.findViewById(R.id.bt_EditPassword);
-        ButtonEditPassword.setOnClickListener(this);
+        ImageButtonEditName = (ImageButton) view.findViewById(R.id.ib_EditName);
+        ImageButtonEditName.setOnClickListener(this);
+        ImageButtonEditFirstName = (ImageButton) view.findViewById(R.id.ib_EditFirstName);
+        ImageButtonEditFirstName.setOnClickListener(this);
+        ImageButtonEditAddress = (ImageButton) view.findViewById(R.id.ib_EditAddress);
+        ImageButtonEditAddress.setOnClickListener(this);
+        ImageButtonEditEmail= (ImageButton) view.findViewById(R.id.ib_EditEMail);
+        ImageButtonEditEmail.setOnClickListener(this);
+        ImageButtonEditPassword = (ImageButton) view.findViewById(R.id.ib_EditPassword);
+        ImageButtonEditPassword.setOnClickListener(this);
 
         return view;
     }
@@ -86,7 +88,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
 
         alert.setView(SimpleEditText);
         switch (i){
-            case R.id.bt_EditAddress:
+            case R.id.ib_EditAddress:
                 title = "Nouvelle Adresse : ";
                 hint = userAccount.getAddress();
                 alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
@@ -96,7 +98,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                     }
                 });
                 break;
-            case R.id.bt_EditEMail:
+            case R.id.ib_EditEMail:
                 title = "Nouvel Email :";
                 hint = userAccount.getEmail();
                 alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
@@ -106,7 +108,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                     }
                 });
                 break;
-            case R.id.bt_EditFirstName:
+            case R.id.ib_EditFirstName:
                 title = "Nouveau Prénom :";
                 hint = userAccount.getFirstName();
                 alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
@@ -116,7 +118,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                     }
                 });
                 break;
-            case R.id.bt_EditName:
+            case R.id.ib_EditName:
                 title = "Nouveau Nom :";
                 hint = userAccount.getName();
                 alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
@@ -126,9 +128,10 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                     }
                 });
                 break;
-            case R.id.bt_EditPassword:
+            case R.id.ib_EditPassword:
                 title = "Nouveau Mot De Passe :";
                 SimpleEditText.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                SimpleEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 hint = userAccount.getPassword();
                 alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {

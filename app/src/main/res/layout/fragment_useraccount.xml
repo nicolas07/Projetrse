@@ -1,107 +1,212 @@
-<LinearLayout
+<RelativeLayout
     android:id="@+id/fragment_news_rootview"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="top"
-    android:background="#EDD9CF">
+    android:background="@color/colorPrimaryLight">
 
-    <TableLayout
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp">
-        <TableRow>
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Nom :"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                />
+
             <TextView
                 android:id="@+id/tv_Name"
-                android:layout_weight="1"
-                android:gravity="center" />
-            <Button
-                android:id="@+id/bt_EditName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"/>
+
+            <ImageButton
+                android:id="@+id/ib_EditName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_edit_blue"
+                android:layout_weight="0.5"
+                android:text="Button"
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button"
-                style="@style/ButtonStyle"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_weight="1"
-                android:text="Prénom"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="Prénom :"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                />
+
             <TextView
                 android:id="@+id/tv_FirstName"
-                android:layout_weight="1"
-                android:gravity="center" />
-            <Button
-                android:id="@+id/bt_EditFirstName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"/>
+
+            <ImageButton
+                android:id="@+id/ib_EditFirstName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_edit_blue"
+                android:layout_weight="0.5"
                 android:text="Button"
-                style="@style/ButtonStyle"/>
-        </TableRow>
-        <TableRow>
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Mot de Passe :"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                />
+
             <TextView
                 android:id="@+id/tv_Password"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:inputType="textPassword" />
-            <Button
-                android:id="@+id/bt_EditPassword"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Button"
-                style="@style/ButtonStyle"/>
+                android:layout_weight="1.5"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                android:inputType="textPassword"/>
 
-        </TableRow>
-        <TableRow>
+            <ImageButton
+                android:id="@+id/ib_EditPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_edit_blue"
+                android:layout_weight="0.5"
+                android:text="Button"
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
             <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Adresse :"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                />
+
             <TextView
                 android:id="@+id/tv_Address"
-                android:layout_weight="1"
-                android:gravity="center"/>
-            <Button
-                android:id="@+id/bt_EditAddress"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"/>
+
+            <ImageButton
+                android:id="@+id/ib_EditAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_edit_blue"
+                android:layout_weight="0.5"
+                android:text="Button"
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button"
-                style="@style/ButtonStyle"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:layout_weight="1"
-                android:text="Email"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:text="EMail :"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                />
+
             <TextView
                 android:id="@+id/tv_EMail"
-                android:layout_weight="1"
-                android:gravity="center"/>
-            <Button
-                android:id="@+id/bt_EditEMail"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1.5"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"/>
+
+            <ImageButton
+                android:id="@+id/ib_EditEMail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_edit_blue"
+                android:layout_weight="0.5"
                 android:text="Button"
-                style="@style/ButtonStyle"/>
-        </TableRow>
-    </TableLayout>
-</LinearLayout>
+                android:background="@null"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

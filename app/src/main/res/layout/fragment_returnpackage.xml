@@ -98,19 +98,11 @@
                 android:id="@+id/ib_EditReturnDate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_edit"
+                android:src="@mipmap/ic_edit_blue"
                 android:layout_weight="0.5"
                 android:text="Button"
                 android:background="@null"
                 android:layout_gravity="center"/>
-
-            <!--<Button-->
-                <!--style="@style/ButtonStyle"-->
-                <!--android:layout_width="0dp"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_weight="0.5"-->
-                <!--android:background="@mipmap/ic_edit_3"-->
-                <!--android:text="Valider"/>-->
 
         </LinearLayout>
 
