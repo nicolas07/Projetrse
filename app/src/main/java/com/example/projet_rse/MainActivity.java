@@ -25,8 +25,13 @@ public class MainActivity extends AppCompatActivity
     // TODO: one tape go to fisrt fragment
     // Note : https://stackoverflow.com/questions/1492554/set-transparent-background-of-an-imageview-on-android
     // Note : https://www.iconfinder.com/icons/103173/edit_new_write_icon
+//    https://www.iconfinder.com/icons/415395/box_closed_delivery_package_icon
+//    https://www.iconfinder.com/icons/3376410/avatar_circular_profil_ui_user_icon
+//    https://www.iconfinder.com/icons/1347412/history_time_timer_icon
+//    https://www.iconfinder.com/icons/134077/account_profile_user_icon
     // TODO : Revoir icone launcher
     // TODO : Revoir Style dialog
+    // TODO : Couleur Menu
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -128,7 +133,6 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        //TODO : Changer les icones Flaticon (package, history)
         switch(id){
             case R.id.nav_returnPackage:
                 this.showFragment(FRAGMENT_RETURNPACKAGE);

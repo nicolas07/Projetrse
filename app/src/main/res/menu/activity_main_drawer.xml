@@ -6,15 +6,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_returnPackage"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Retourner un colis" />
+            android:icon="@mipmap/ic_package"
+            android:title="Retourner un colis"/>
         <item
             android:id="@+id/nav_history"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@mipmap/ic_history"
             android:title="Historique" />
         <item
             android:id="@+id/nav_useraccount"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@mipmap/ic_profile_2"
             android:title="Profil" />
     </group>
 </menu>

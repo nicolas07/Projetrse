@@ -5,7 +5,10 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.InputType;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
 import android.text.method.PasswordTransformationMethod;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -147,7 +150,15 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                 break;
         }
         SimpleEditText.setHint(hint);
-        alert.setTitle(title);
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(getResources().getColor(R.color.colorAccent));
+        SpannableStringBuilder ssBuilder = new SpannableStringBuilder(title);
+        ssBuilder.setSpan(
+                foregroundColorSpan,
+                0,
+                title.length(),
+                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+        alert.setTitle(ssBuilder);
 
         alert.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
