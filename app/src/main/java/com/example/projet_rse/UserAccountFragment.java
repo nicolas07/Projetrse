@@ -31,14 +31,14 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
     private UserAccount userAccount;
     private StorageHelper storageHelper;
 
-    // TODO : Remplacer les Button par des Imagebutton
-
     public static UserAccountFragment newInstance() {
         return (new UserAccountFragment());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        ((MainActivity) getActivity()).setActionBarTitle("Profil");
 
         storageHelper = new StorageHelper(getContext());
 

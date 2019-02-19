@@ -34,7 +34,7 @@ public class ReturnPackageFragment extends Fragment {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+            ((MainActivity) getActivity()).setActionBarTitle("Retourner un colis");
             storageHelper = new StorageHelper(getContext());
 
             View view = inflater.inflate(R.layout.fragment_returnpackage, container, false);
@@ -73,12 +73,12 @@ public class ReturnPackageFragment extends Fragment {
             ImageButtonEditReturnDate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    View toto = LayoutInflater.from(getActivity())
+                    View v2 = LayoutInflater.from(getActivity())
                             .inflate(R.layout.dialog_date,null);
-                    final DatePicker datePicker = (DatePicker) toto.findViewById(R.id.dialog_date_date_picker);
+                    final DatePicker datePicker = (DatePicker) v2.findViewById(R.id.dialog_date_date_picker);
                     android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(getActivity());
-                    alert.setTitle("Datepicker");
-                    alert.setView(toto);
+                    alert.setTitle("Date d'enlèvement : ");
+                    alert.setView(v2);
                     alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
                             int year = datePicker.getYear();

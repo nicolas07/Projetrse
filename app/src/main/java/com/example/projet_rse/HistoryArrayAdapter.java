@@ -3,6 +3,8 @@ package com.example.projet_rse;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,10 +67,10 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
         }
         History history = getItem(position);
         viewHolder.TextViewDate.setText(history.getDate());
-        viewHolder.TextViewPackageNumber.setText(history.getPackagesNumber());
+        viewHolder.TextViewPackageNumber.setText(Html.fromHtml("<u>Nombre de colis : </u>"+history.getPackagesNumber(),0));
         viewHolder.TextViewAmount.setText(history.getAmount());
-        viewHolder.TextViewAdress.setText(history.getAddress());
-        viewHolder.TextViewAdress.setLines(history.GetAddressLines());
+        viewHolder.TextViewAdress.setText("Adresse d'enlèvement : \n"+history.getAddress());
+        viewHolder.TextViewAdress.setLines(history.GetAddressLines()+1);
         return row;
     }
 

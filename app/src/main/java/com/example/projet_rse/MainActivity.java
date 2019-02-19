@@ -22,10 +22,10 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     // TODO: one tape go to fisrt fragment
-    // TODO: splash screen
-    // TODO: Style Material Design
-    // TODO : https://stackoverflow.com/questions/1492554/set-transparent-background-of-an-imageview-on-android
-    // TODO : https://www.iconfinder.com/icons/103173/edit_new_write_icon
+    // Note : https://stackoverflow.com/questions/1492554/set-transparent-background-of-an-imageview-on-android
+    // Note : https://www.iconfinder.com/icons/103173/edit_new_write_icon
+    // TODO : Revoir icone launcher
+    // TODO : Revoir Style dialog
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBackPressed() {
         // 5 - Handle back click to close menu
+
         if (this.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             this.drawerLayout.closeDrawer(GravityCompat.START);
         } else {
@@ -162,16 +163,19 @@ public class MainActivity extends AppCompatActivity
 
     private void showHistoryFragment(){
         if (this.fragmentHistory == null) this.fragmentHistory = HistoryFragment.newInstance();
+//        getActionBar().setTitle("History");
         this.startTransactionFragment(this.fragmentHistory);
     }
 
     private void showReturnPackageFragment(){
         if (this.fragmentReturnPackage == null) this.fragmentReturnPackage = ReturnPackageFragment.newInstance();
+//        getSupportActionBar().setTitle("Return");
         this.startTransactionFragment(this.fragmentReturnPackage);
     }
 
     private void showUserAccountFragment(){
         if (this.fragmentUserAccount == null) this.fragmentUserAccount = UserAccountFragment.newInstance();
+//        getSupportActionBar().setTitle("profil");
         this.startTransactionFragment(this.fragmentUserAccount);
     }
 
@@ -190,6 +194,10 @@ public class MainActivity extends AppCompatActivity
             // 1.2 - Mark as selected the menu item corresponding to NewsFragment
             this.navigationView.getMenu().getItem(0).setChecked(true);
         }
+    }
+
+    public void setActionBarTitle(String title){
+        getSupportActionBar().setTitle(title);
     }
 
     // ---------------------

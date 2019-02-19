@@ -46,6 +46,8 @@ public class HistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.fragment_history, container, false);
 
+        ((MainActivity) getActivity()).setActionBarTitle("Historique");
+
        storageHelper = new StorageHelper(getActivity());
 
         listView = (ListView) view.findViewById(R.id.lv_History);
