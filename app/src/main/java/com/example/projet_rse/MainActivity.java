@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity
 //    https://www.iconfinder.com/icons/134077/account_profile_user_icon
     // TODO : Revoir icone launcher
     // TODO : Revoir Style dialog
-    // TODO : Couleur Menu
+    // TODO : Couleur Police Menu
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
