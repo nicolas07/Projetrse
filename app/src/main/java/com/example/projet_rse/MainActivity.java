@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity
 //    https://www.iconfinder.com/icons/1347412/history_time_timer_icon
 //    https://www.iconfinder.com/icons/134077/account_profile_user_icon
     // TODO: one tape go to fisrt fragment
-    // TODO : Revoir icone launcher
     // TODO : Couleur Police Toolbar
     // TODO : Liste History
 
