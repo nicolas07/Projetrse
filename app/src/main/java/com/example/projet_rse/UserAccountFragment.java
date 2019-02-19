@@ -84,9 +84,12 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
         String hint = "";
 
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-        final EditText SimpleEditText = new EditText(getActivity());
+        View vEditText = LayoutInflater.from(getActivity())
+                .inflate(R.layout.dialog_edittext,null);
 
-        alert.setView(SimpleEditText);
+        final EditText SimpleEditText = (EditText) vEditText.findViewById(R.id.et_EditDialog);
+
+        alert.setView(vEditText);
         switch (i){
             case R.id.ib_EditAddress:
                 title = "Nouvelle Adresse : ";
