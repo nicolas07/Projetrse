@@ -22,16 +22,17 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    // TODO: one tape go to fisrt fragment
+
     // Note : https://stackoverflow.com/questions/1492554/set-transparent-background-of-an-imageview-on-android
     // Note : https://www.iconfinder.com/icons/103173/edit_new_write_icon
 //    https://www.iconfinder.com/icons/415395/box_closed_delivery_package_icon
 //    https://www.iconfinder.com/icons/3376410/avatar_circular_profil_ui_user_icon
 //    https://www.iconfinder.com/icons/1347412/history_time_timer_icon
 //    https://www.iconfinder.com/icons/134077/account_profile_user_icon
+    // TODO: one tape go to fisrt fragment
     // TODO : Revoir icone launcher
-    // TODO : Revoir Style dialog
-    // TODO : Couleur Police Menu
+    // TODO : Couleur Police Toolbar
+    // TODO : Liste History
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

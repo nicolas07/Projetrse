@@ -5,6 +5,9 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,29 +67,38 @@ public class HistoryFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 History history = (History) listView.getItemAtPosition(position);
-                Toast.makeText(getActivity(),history.getPackagesNumber().toString(),Toast.LENGTH_LONG).show();
+//
+//                LinearLayout l = new LinearLayout(getActivity());
+//                l.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//                l.setOrientation(LinearLayout.VERTICAL);
+//
+//
+//                ImageView iv = new ImageView(getActivity());
+//                iv.setImageBitmap(bitmap);
+//
+//                l.addView(iv);
 
-                LinearLayout l = new LinearLayout(getActivity());
-                l.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-                l.setOrientation(LinearLayout.VERTICAL);
+//                //barcode text
+//                TextView tv = new TextView(getActivity());
+//                tv.setGravity(Gravity.CENTER_HORIZONTAL);
+//                tv.setText(history.getAmount() + " (Valable jusqu'au 06/06/2019)");
+//
+//                l.addView(tv);
+
+                android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(getActivity());
+
+                View vBarCode = LayoutInflater.from(getActivity())
+                        .inflate(R.layout.dialog_imageview,null);
+
+                TextView LegendBarCode = vBarCode.findViewById(R.id.tv_LegendBarcode);
+                ImageView BarCode = vBarCode.findViewById(R.id.iv_BarCode);
 
                 BarCodeHelper barCodeHelper = new BarCodeHelper();
                 Bitmap bitmap = barCodeHelper.GenerateBarCode();
-                ImageView iv = new ImageView(getActivity());
-                iv.setImageBitmap(bitmap);
+                BarCode.setImageBitmap(bitmap);
 
-                l.addView(iv);
-
-                //barcode text
-                TextView tv = new TextView(getActivity());
-                tv.setGravity(Gravity.CENTER_HORIZONTAL);
-                tv.setText(history.getAmount() + " (Valable jusqu'au 06/06/2019)");
-
-                l.addView(tv);
-
-                android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(getActivity());
-                alert.setTitle("Bon d'achat");
-                alert.setView(l);
+                LegendBarCode.setText(history.getAmount() + " (Valable jusqu'au 06/06/2019)");
+                alert.setView(vBarCode);
                 alert.setPositiveButton("Retour", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
 
