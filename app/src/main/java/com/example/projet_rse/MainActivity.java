@@ -1,5 +1,6 @@
 package com.example.projet_rse;
 
+import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.os.Handler;
@@ -163,19 +164,16 @@ public class MainActivity extends AppCompatActivity
 
     private void showHistoryFragment(){
         if (this.fragmentHistory == null) this.fragmentHistory = HistoryFragment.newInstance();
-//        getActionBar().setTitle("History");
         this.startTransactionFragment(this.fragmentHistory);
     }
 
     private void showReturnPackageFragment(){
         if (this.fragmentReturnPackage == null) this.fragmentReturnPackage = ReturnPackageFragment.newInstance();
-//        getSupportActionBar().setTitle("Return");
         this.startTransactionFragment(this.fragmentReturnPackage);
     }
 
     private void showUserAccountFragment(){
         if (this.fragmentUserAccount == null) this.fragmentUserAccount = UserAccountFragment.newInstance();
-//        getSupportActionBar().setTitle("profil");
         this.startTransactionFragment(this.fragmentUserAccount);
     }
 

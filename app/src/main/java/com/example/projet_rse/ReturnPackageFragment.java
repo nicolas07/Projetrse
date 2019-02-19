@@ -3,10 +3,12 @@ package com.example.projet_rse;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -35,6 +37,7 @@ public class ReturnPackageFragment extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             ((MainActivity) getActivity()).setActionBarTitle("Retourner un colis");
+
             storageHelper = new StorageHelper(getContext());
 
             View view = inflater.inflate(R.layout.fragment_returnpackage, container, false);
@@ -77,7 +80,6 @@ public class ReturnPackageFragment extends Fragment {
                             .inflate(R.layout.dialog_date,null);
                     final DatePicker datePicker = (DatePicker) v2.findViewById(R.id.dialog_date_date_picker);
                     android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(getActivity());
-                    alert.setTitle("Date d'enlèvement : ");
                     alert.setView(v2);
                     alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int whichButton) {
@@ -86,6 +88,12 @@ public class ReturnPackageFragment extends Fragment {
                             int day = datePicker.getDayOfMonth();
                             String date = String.valueOf(day) + "/" + String.valueOf(mon) + "/" + String.valueOf(year);
                             TextViewReturnDate.setText(date);
+                        }
+                    });
+                    alert.setNegativeButton("Annuler", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
                         }
                     });
                 alert.show();
