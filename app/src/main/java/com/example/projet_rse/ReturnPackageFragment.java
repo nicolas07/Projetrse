@@ -3,12 +3,10 @@ package com.example.projet_rse;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -27,8 +25,6 @@ public class ReturnPackageFragment extends Fragment {
     private EditText EditTextReturnPackageNumber;
     private TextView TextViewReturnAddress;
     private TextView TextViewReturnDate;
-    private ImageButton ImageButtonEditReturnDate;
-    private Button ButtonValidateReturn;
 
     private StorageHelper storageHelper;
 
@@ -50,8 +46,8 @@ public class ReturnPackageFragment extends Fragment {
             TextViewReturnAddress = (TextView) view.findViewById(R.id.tv_ReturnAddress);
             TextViewReturnAddress.setText(userAccount.getAddress());
             TextViewReturnAddress.setLines(userAccount.GetAddressLines());
-            ButtonValidateReturn = (Button) view.findViewById(R.id.bt_ValidateReturn);
-            ButtonValidateReturn.setOnClickListener(new View.OnClickListener() {
+            Button buttonValidateReturn = (Button) view.findViewById(R.id.bt_ValidateReturn);
+            buttonValidateReturn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int n = Integer.parseInt(EditTextReturnPackageNumber.getText().toString());
@@ -81,8 +77,8 @@ public class ReturnPackageFragment extends Fragment {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             String todayString = formatter.format(todayDate);
             TextViewReturnDate.setText(todayString);
-            ImageButtonEditReturnDate = (ImageButton) view.findViewById(R.id.ib_EditReturnDate);
-            ImageButtonEditReturnDate.setOnClickListener(new View.OnClickListener() {
+            ImageButton imageButtonEditReturnDate = (ImageButton) view.findViewById(R.id.ib_EditReturnDate);
+            imageButtonEditReturnDate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     View v2 = LayoutInflater.from(getActivity())

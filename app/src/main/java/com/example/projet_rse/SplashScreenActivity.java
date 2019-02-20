@@ -7,8 +7,6 @@ import android.os.Bundle;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    private static int SPLASH_DUREE_OUT = 3000; //en msecondes
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +14,8 @@ public class SplashScreenActivity extends AppCompatActivity {
         //Set Status bar color
         getWindow().setStatusBarColor(getColor(R.color.colorPrimary));
 
+        //en msecondes
+        int SPLASH_DUREE_OUT = 3000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

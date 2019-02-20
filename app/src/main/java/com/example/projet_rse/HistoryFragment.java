@@ -1,49 +1,26 @@
 package com.example.projet_rse;
 
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.ForegroundColorSpan;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
-import com.journeyapps.barcodescanner.BarcodeEncoder;
-
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
 
 
 public class HistoryFragment extends Fragment {
 
-    private static final int WHITE = 0xFFFFFFFF;
-    private static final int BLACK = 0xFF000000;
-
     private static final String TAG = "HistoryListFragment";
-    private HistoryArrayAdapter historyArrayAdapter;
     private ListView listView;
-
-    private StorageHelper storageHelper;
 
     public static HistoryFragment newInstance() {
         return (new HistoryFragment());
@@ -55,14 +32,14 @@ public class HistoryFragment extends Fragment {
 
         ((MainActivity) getActivity()).setActionBarTitle("Historique");
 
-       storageHelper = new StorageHelper(getActivity());
+        StorageHelper storageHelper = new StorageHelper(getActivity());
 
         listView = (ListView) view.findViewById(R.id.lv_History);
 
         listView.addHeaderView(new View(getActivity()));
         listView.addFooterView(new View(getActivity()));
 
-        historyArrayAdapter = new HistoryArrayAdapter(getActivity(), R.layout.list_item_history);
+        HistoryArrayAdapter historyArrayAdapter = new HistoryArrayAdapter(getActivity(), R.layout.list_item_history);
         List<History> sortedList = storageHelper.GetHistories();
         Collections.sort(sortedList, new Comparator<History>() {
             @Override

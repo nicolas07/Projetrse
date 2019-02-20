@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.text.Html;
-import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class HistoryArrayAdapter  extends ArrayAdapter<History> {
+class HistoryArrayAdapter  extends ArrayAdapter<History> {
     private static final String TAG = "HistoryArrayAdapter";
     private List<History> Histories = new ArrayList<History>();
 

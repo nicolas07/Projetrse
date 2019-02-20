@@ -5,8 +5,6 @@ import java.util.Date;
 
 public class History {
 
-    private static double UnitAmount = 0.3;
-
     private java.util.Date Date;
     private String PackagesNumber;
     private String Amount;
@@ -21,7 +19,8 @@ public class History {
 
     private String CalculateAmount(String packagesNumber){
         int quantity = Integer.parseInt(packagesNumber);
-        double sum = quantity*UnitAmount;
+        double unitAmount = 0.3;
+        double sum = quantity* unitAmount;
         DecimalFormat twoDForm = new DecimalFormat("#.##");
         return String.valueOf(twoDForm.format(sum)+"€");
     }

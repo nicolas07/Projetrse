@@ -1,13 +1,8 @@
 package com.example.projet_rse;
 
-import android.app.ActionBar;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,9 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -49,7 +41,7 @@ public class MainActivity extends AppCompatActivity
     public static final int FRAGMENT_HISTORY = 0;
     public static final int FRAGMENT_RETURNPACKAGE = 1;
     public static final int FRAGMENT_USERACCOUNT = 2;
-    public static final int FRAGMENT_HOME = 3;
+    private static final int FRAGMENT_HOME = 3;
 
     private boolean doubleBackToExitPressedOnce;
 

@@ -12,9 +12,9 @@ import java.util.List;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class StorageHelper {
+class StorageHelper {
 
-    public static final String MY_PREFS_NAME = "MyPrefsFile";
+    private static final String MY_PREFS_NAME = "MyPrefsFile";
     private SharedPreferences StoragePreferences;
 
     public StorageHelper(Context context) {
@@ -24,8 +24,7 @@ public class StorageHelper {
     public UserAccount GetUserAccount(){
         Gson gson = new Gson();
         String json = StoragePreferences.getString("userAccount", "");
-        UserAccount obj = gson.fromJson(json, UserAccount.class);
-        return obj;
+        return gson.fromJson(json, UserAccount.class);
     }
 
     public void StoreUserAccount(UserAccount userAccount){
@@ -41,11 +40,10 @@ public class StorageHelper {
         Gson gson = new Gson();
         String json = StoragePreferences.getString("Histories", "");
         Type type = new TypeToken<List<History>>() {}.getType();
-        List<History> obj = gson.fromJson(json, type);
-        return obj;
+        return gson.fromJson(json, type);
     }
 
-    public void StoreHistories(List<History> histories){
+    private void StoreHistories(List<History> histories){
 
         SharedPreferences.Editor prefsEditor = StoragePreferences.edit();
         Gson gson = new Gson();

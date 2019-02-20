@@ -1,11 +1,12 @@
 package com.example.projet_rse;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-public class RandomDateGenerator {
+class RandomDateGenerator {
 
 
         public Date Generate() {
@@ -17,7 +18,7 @@ public class RandomDateGenerator {
 
 
             GregorianCalendar gc = new GregorianCalendar(year, month, 1);
-            int day = randBetween(1, gc.getActualMaximum(gc.DAY_OF_MONTH));
+            int day = randBetween(1, gc.getActualMaximum(Calendar.DAY_OF_MONTH));
 
             gc.set(year, month, day,0,0,0);
 
@@ -25,7 +26,7 @@ public class RandomDateGenerator {
         }
 
 
-        public int randBetween(int start, int end) {
+        private int randBetween(int start, int end) {
             return start + (int)Math.round(Math.random() * (end - start));
         }
 }

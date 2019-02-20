@@ -8,7 +8,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
-public class QRCodeHelper {
+class QRCodeHelper {
 
     public Bitmap GenerateQRCode(){
 

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -12,7 +13,6 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -24,12 +24,6 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
     private TextView TextViewAddress;
     private TextView TextViewEmail;
     private TextView TextViewPassword;
-
-    private ImageButton ImageButtonEditName;
-    private ImageButton ImageButtonEditFirstName;
-    private ImageButton ImageButtonEditAddress;
-    private ImageButton ImageButtonEditEmail;
-    private ImageButton ImageButtonEditPassword;
 
     private UserAccount userAccount;
     private StorageHelper storageHelper;
@@ -62,16 +56,16 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
         TextViewEmail.setText(userAccount.getEmail());
         TextViewPassword.setText(userAccount.getPassword());
 
-        ImageButtonEditName = (ImageButton) view.findViewById(R.id.ib_EditName);
-        ImageButtonEditName.setOnClickListener(this);
-        ImageButtonEditFirstName = (ImageButton) view.findViewById(R.id.ib_EditFirstName);
-        ImageButtonEditFirstName.setOnClickListener(this);
-        ImageButtonEditAddress = (ImageButton) view.findViewById(R.id.ib_EditAddress);
-        ImageButtonEditAddress.setOnClickListener(this);
-        ImageButtonEditEmail= (ImageButton) view.findViewById(R.id.ib_EditEMail);
-        ImageButtonEditEmail.setOnClickListener(this);
-        ImageButtonEditPassword = (ImageButton) view.findViewById(R.id.ib_EditPassword);
-        ImageButtonEditPassword.setOnClickListener(this);
+        ImageButton imageButtonEditName = (ImageButton) view.findViewById(R.id.ib_EditName);
+        imageButtonEditName.setOnClickListener(this);
+        ImageButton imageButtonEditFirstName = (ImageButton) view.findViewById(R.id.ib_EditFirstName);
+        imageButtonEditFirstName.setOnClickListener(this);
+        ImageButton imageButtonEditAddress = (ImageButton) view.findViewById(R.id.ib_EditAddress);
+        imageButtonEditAddress.setOnClickListener(this);
+        ImageButton imageButtonEditEmail = (ImageButton) view.findViewById(R.id.ib_EditEMail);
+        imageButtonEditEmail.setOnClickListener(this);
+        ImageButton imageButtonEditPassword = (ImageButton) view.findViewById(R.id.ib_EditPassword);
+        imageButtonEditPassword.setOnClickListener(this);
 
         return view;
     }
@@ -150,7 +144,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                 break;
         }
         SimpleEditText.setHint(hint);
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(getResources().getColor(R.color.colorAccent));
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ContextCompat.getColor(getActivity(),R.color.colorAccent));
         SpannableStringBuilder ssBuilder = new SpannableStringBuilder(title);
         ssBuilder.setSpan(
                 foregroundColorSpan,

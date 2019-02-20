@@ -1,6 +1,6 @@
 package com.example.projet_rse;
 
-public class PurchasingVoucher {
+class PurchasingVoucher {
 
     private String ExpirationDate;
     private int Amount;
