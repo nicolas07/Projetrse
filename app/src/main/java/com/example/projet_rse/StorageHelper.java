@@ -70,7 +70,7 @@ public class StorageHelper {
         List<History> histories = new ArrayList<History>();
 
         for(int i=0; i < 10;i++){
-            histories.add(new History("14/02/2019",Integer.toString(i),"25 rue du Pont \n 75050 PARIS"));
+            histories.add(new History(new RandomDateGenerator().Generate(),Integer.toString(i)+1,"25 rue du Pont \n 75050 PARIS"));
         }
         StoreHistories(histories);
 

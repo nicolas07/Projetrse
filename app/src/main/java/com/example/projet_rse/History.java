@@ -1,17 +1,18 @@
 package com.example.projet_rse;
 
 import java.text.DecimalFormat;
+import java.util.Date;
 
 public class History {
 
     private static double UnitAmount = 0.3;
 
-    private String Date;
+    private java.util.Date Date;
     private String PackagesNumber;
     private String Amount;
     private String Address;
 
-    public History(String date, String packagesNumber, String address) {
+    public History(Date date, String packagesNumber, String address) {
         Date = date;
         PackagesNumber = packagesNumber;
         Address = address;
@@ -25,11 +26,11 @@ public class History {
         return String.valueOf(twoDForm.format(sum)+"€");
     }
 
-    public String getDate() {
+    public Date getDate() {
         return Date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         Date = date;
     }
 

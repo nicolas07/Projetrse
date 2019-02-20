@@ -20,6 +20,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -32,7 +35,6 @@ public class MainActivity extends AppCompatActivity
     // TODO: one tape go to fisrt fragment
     // TODO : Couleur Police Toolbar
     // TODO : Liste History
-    // TODO : Trier les history par date
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;

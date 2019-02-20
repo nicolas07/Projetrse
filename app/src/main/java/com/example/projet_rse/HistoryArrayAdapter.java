@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class HistoryArrayAdapter  extends ArrayAdapter<History> {
     private static final String TAG = "HistoryArrayAdapter";
@@ -66,7 +68,7 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
             viewHolder = (HistoryViewHolder)row.getTag();
         }
         History history = getItem(position);
-        viewHolder.TextViewDate.setText(history.getDate());
+        viewHolder.TextViewDate.setText(new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(history.getDate()));
         viewHolder.TextViewPackageNumber.setText(Html.fromHtml("<u>Nombre de colis : </u>"+history.getPackagesNumber(),0));
         viewHolder.TextViewAmount.setText(history.getAmount());
 //        viewHolder.TextViewAdress.setText("Adresse d'enlèvement : \n"+history.getAddress());

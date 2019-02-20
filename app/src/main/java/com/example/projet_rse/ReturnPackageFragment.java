@@ -16,9 +16,11 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class ReturnPackageFragment extends Fragment {
 
@@ -57,7 +59,14 @@ public class ReturnPackageFragment extends Fragment {
                     String message = null;
                     if(n > 0 && !TextUtils.isEmpty(TextViewReturnAddress.getText().toString())){
                         message = "Demande Retour validée";
-                        storageHelper.StoreHistory(new History(TextViewReturnDate.getText().toString(),EditTextReturnPackageNumber.getText().toString(),TextViewReturnAddress.getText().toString()));
+                        Date date = null;
+                        try {
+                            date = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).parse(TextViewReturnDate.getText().toString());
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+                        storageHelper.StoreHistory(new History(date,EditTextReturnPackageNumber.getText().toString(),TextViewReturnAddress.getText().toString()));
                     } else {
                         message = "Une erreur s'est produite";
                     }

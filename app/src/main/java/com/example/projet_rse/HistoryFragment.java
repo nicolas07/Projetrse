@@ -26,7 +26,11 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -59,7 +63,15 @@ public class HistoryFragment extends Fragment {
         listView.addFooterView(new View(getActivity()));
 
         historyArrayAdapter = new HistoryArrayAdapter(getActivity(), R.layout.list_item_history);
-        historyArrayAdapter.addList(storageHelper.GetHistories());
+        List<History> sortedList = storageHelper.GetHistories();
+        Collections.sort(sortedList, new Comparator<History>() {
+            @Override
+            public int compare(History o1, History o2) {
+                return o2.getDate().compareTo(o1.getDate());
+            }
+        });
+
+        historyArrayAdapter.addList(sortedList);
 
         listView.setAdapter(historyArrayAdapter);
 
@@ -67,23 +79,6 @@ public class HistoryFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 History history = (History) listView.getItemAtPosition(position);
-//
-//                LinearLayout l = new LinearLayout(getActivity());
-//                l.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-//                l.setOrientation(LinearLayout.VERTICAL);
-//
-//
-//                ImageView iv = new ImageView(getActivity());
-//                iv.setImageBitmap(bitmap);
-//
-//                l.addView(iv);
-
-//                //barcode text
-//                TextView tv = new TextView(getActivity());
-//                tv.setGravity(Gravity.CENTER_HORIZONTAL);
-//                tv.setText(history.getAmount() + " (Valable jusqu'au 06/06/2019)");
-//
-//                l.addView(tv);
 
                 android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(getActivity());
 
