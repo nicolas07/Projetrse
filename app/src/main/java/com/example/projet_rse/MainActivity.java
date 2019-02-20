@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity
     // Note : https://www.iconfinder.com/icons/3376410/avatar_circular_profil_ui_user_icon
     // Note : https://www.iconfinder.com/icons/1347412/history_time_timer_icon
     // Note : https://www.iconfinder.com/icons/134077/account_profile_user_icon
-    // TODO: one tape go to fisrt fragment
-    // TODO : Couleur Police Toolbar
-    // TODO : Liste History
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
