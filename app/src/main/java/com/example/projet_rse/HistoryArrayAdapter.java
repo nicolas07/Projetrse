@@ -16,8 +16,7 @@ import java.util.List;
 import java.util.Locale;
 
 class HistoryArrayAdapter  extends ArrayAdapter<History> {
-    private static final String TAG = "HistoryArrayAdapter";
-    private List<History> Histories = new ArrayList<History>();
+    private final List<History> Histories = new ArrayList<>();
 
     static class HistoryViewHolder {
         TextView TextViewDate;
@@ -58,10 +57,9 @@ class HistoryArrayAdapter  extends ArrayAdapter<History> {
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(R.layout.list_item_history, parent, false);
             viewHolder = new HistoryViewHolder();
-            viewHolder.TextViewDate = (TextView) row.findViewById(R.id.tv_Date);
-            viewHolder.TextViewPackageNumber = (TextView) row.findViewById(R.id.tv_PackageNumber);
-            viewHolder.TextViewAmount = (TextView) row.findViewById(R.id.tv_Amount);
-//            viewHolder.TextViewAdress = (TextView) row.findViewById(R.id.tv_Address);
+            viewHolder.TextViewDate = row.findViewById(R.id.tv_Date);
+            viewHolder.TextViewPackageNumber = row.findViewById(R.id.tv_PackageNumber);
+            viewHolder.TextViewAmount = row.findViewById(R.id.tv_Amount);
             row.setTag(viewHolder);
         } else {
             viewHolder = (HistoryViewHolder)row.getTag();
@@ -70,13 +68,7 @@ class HistoryArrayAdapter  extends ArrayAdapter<History> {
         viewHolder.TextViewDate.setText(new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(history.getDate()));
         viewHolder.TextViewPackageNumber.setText(Html.fromHtml("<u>Nombre de colis : </u>"+history.getPackagesNumber(),0));
         viewHolder.TextViewAmount.setText(history.getAmount());
-//        viewHolder.TextViewAdress.setText("Adresse d'enlèvement : \n"+history.getAddress());
-//        viewHolder.TextViewAdress.setLines(history.GetAddressLines()+1);
         return row;
-    }
-
-    public Bitmap decodeToBitmap(byte[] decodedByte) {
-        return BitmapFactory.decodeByteArray(decodedByte, 0, decodedByte.length);
     }
 
 

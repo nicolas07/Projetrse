@@ -11,11 +11,8 @@ class RandomDateGenerator {
 
         public Date Generate() {
 
-            SimpleDateFormat dfDateTime  = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss", Locale.getDefault());
             int year = randBetween(2018, 2018);// Here you can set Range of years you need
             int month = randBetween(0, 11);
-
-
 
             GregorianCalendar gc = new GregorianCalendar(year, month, 1);
             int day = randBetween(1, gc.getActualMaximum(Calendar.DAY_OF_MONTH));

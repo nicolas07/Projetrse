@@ -37,20 +37,12 @@ public class History {
         return PackagesNumber;
     }
 
-    public void setPackagesNumber(String packagesNumber) {
-        PackagesNumber = packagesNumber;
-    }
-
     public String getAmount() {
         return Amount;
     }
 
     public String getAddress() {
         return Address;
-    }
-
-    public void setAddress(String address) {
-        Address = address;
     }
 
     public int GetAddressLines()

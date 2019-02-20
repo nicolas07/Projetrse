@@ -43,11 +43,11 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
 
 
         View view = inflater.inflate(R.layout.fragment_useraccount, container, false);
-        TextViewName = (TextView) view.findViewById(R.id.tv_Name);
-        TextViewFirstName = (TextView) view.findViewById(R.id.tv_FirstName);
-        TextViewAddress = (TextView) view.findViewById(R.id.tv_Address);
-        TextViewEmail = (TextView) view.findViewById(R.id.tv_EMail);
-        TextViewPassword = (TextView) view.findViewById(R.id.tv_Password);
+        TextViewName = view.findViewById(R.id.tv_Name);
+        TextViewFirstName = view.findViewById(R.id.tv_FirstName);
+        TextViewAddress = view.findViewById(R.id.tv_Address);
+        TextViewEmail = view.findViewById(R.id.tv_EMail);
+        TextViewPassword = view.findViewById(R.id.tv_Password);
 
         TextViewName.setText(userAccount.getName());
         TextViewFirstName.setText(userAccount.getFirstName());
@@ -56,15 +56,15 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
         TextViewEmail.setText(userAccount.getEmail());
         TextViewPassword.setText(userAccount.getPassword());
 
-        ImageButton imageButtonEditName = (ImageButton) view.findViewById(R.id.ib_EditName);
+        ImageButton imageButtonEditName = view.findViewById(R.id.ib_EditName);
         imageButtonEditName.setOnClickListener(this);
-        ImageButton imageButtonEditFirstName = (ImageButton) view.findViewById(R.id.ib_EditFirstName);
+        ImageButton imageButtonEditFirstName = view.findViewById(R.id.ib_EditFirstName);
         imageButtonEditFirstName.setOnClickListener(this);
-        ImageButton imageButtonEditAddress = (ImageButton) view.findViewById(R.id.ib_EditAddress);
+        ImageButton imageButtonEditAddress = view.findViewById(R.id.ib_EditAddress);
         imageButtonEditAddress.setOnClickListener(this);
-        ImageButton imageButtonEditEmail = (ImageButton) view.findViewById(R.id.ib_EditEMail);
+        ImageButton imageButtonEditEmail = view.findViewById(R.id.ib_EditEMail);
         imageButtonEditEmail.setOnClickListener(this);
-        ImageButton imageButtonEditPassword = (ImageButton) view.findViewById(R.id.ib_EditPassword);
+        ImageButton imageButtonEditPassword = view.findViewById(R.id.ib_EditPassword);
         imageButtonEditPassword.setOnClickListener(this);
 
         return view;
@@ -76,7 +76,6 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
 
         int i = v.getId();
 
-        String message = "";
         String title = "";
         String hint = "";
 
@@ -84,7 +83,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
         View vEditText = LayoutInflater.from(getActivity())
                 .inflate(R.layout.dialog_edittext,null);
 
-        final EditText SimpleEditText = (EditText) vEditText.findViewById(R.id.et_EditDialog);
+        final EditText SimpleEditText = vEditText.findViewById(R.id.et_EditDialog);
 
         alert.setView(vEditText);
         switch (i){

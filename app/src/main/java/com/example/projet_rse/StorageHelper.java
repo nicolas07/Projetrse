@@ -15,7 +15,7 @@ import static android.content.Context.MODE_PRIVATE;
 class StorageHelper {
 
     private static final String MY_PREFS_NAME = "MyPrefsFile";
-    private SharedPreferences StoragePreferences;
+    private final SharedPreferences StoragePreferences;
 
     public StorageHelper(Context context) {
         StoragePreferences = context.getSharedPreferences(MY_PREFS_NAME,MODE_PRIVATE);
@@ -65,7 +65,7 @@ class StorageHelper {
         UserAccount userAccount = new UserAccount("DUPONT", "Marcel", "28 rue Dupont \n 75020 Paris","azerty","m.dupont@gmail.com");
         StoreUserAccount(userAccount);
 
-        List<History> histories = new ArrayList<History>();
+        List<History> histories = new ArrayList<>();
 
         for(int i=0; i < 10;i++){
             histories.add(new History(new RandomDateGenerator().Generate(),Integer.toString(i)+1,"25 rue du Pont \n 75050 PARIS"));

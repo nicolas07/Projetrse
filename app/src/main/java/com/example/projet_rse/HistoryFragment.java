@@ -19,7 +19,6 @@ import java.util.List;
 
 public class HistoryFragment extends Fragment {
 
-    private static final String TAG = "HistoryListFragment";
     private ListView listView;
 
     public static HistoryFragment newInstance() {
@@ -34,7 +33,7 @@ public class HistoryFragment extends Fragment {
 
         StorageHelper storageHelper = new StorageHelper(getActivity());
 
-        listView = (ListView) view.findViewById(R.id.lv_History);
+        listView = view.findViewById(R.id.lv_History);
 
         listView.addHeaderView(new View(getActivity()));
         listView.addFooterView(new View(getActivity()));

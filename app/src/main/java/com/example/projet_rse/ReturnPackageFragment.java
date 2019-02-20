@@ -39,20 +39,20 @@ public class ReturnPackageFragment extends Fragment {
             storageHelper = new StorageHelper(getContext());
 
             View view = inflater.inflate(R.layout.fragment_returnpackage, container, false);
-            EditTextReturnPackageNumber = (EditText) view.findViewById(R.id.et_ReturnPackageNumber);
+            EditTextReturnPackageNumber = view.findViewById(R.id.et_ReturnPackageNumber);
             EditTextReturnPackageNumber.setText("0");
             UserAccount userAccount = storageHelper.GetUserAccount();
 
-            TextViewReturnAddress = (TextView) view.findViewById(R.id.tv_ReturnAddress);
+            TextViewReturnAddress = view.findViewById(R.id.tv_ReturnAddress);
             TextViewReturnAddress.setText(userAccount.getAddress());
             TextViewReturnAddress.setLines(userAccount.GetAddressLines());
-            Button buttonValidateReturn = (Button) view.findViewById(R.id.bt_ValidateReturn);
+            Button buttonValidateReturn = view.findViewById(R.id.bt_ValidateReturn);
             buttonValidateReturn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int n = Integer.parseInt(EditTextReturnPackageNumber.getText().toString());
 
-                    String message = null;
+                    String message;
                     if(n > 0 && !TextUtils.isEmpty(TextViewReturnAddress.getText().toString())){
                         message = "Demande Retour validée";
                         Date date = null;
@@ -71,19 +71,18 @@ public class ReturnPackageFragment extends Fragment {
 
                 }
             });
-            String date = "";
-            TextViewReturnDate = (TextView) view.findViewById(R.id.tv_ReturnDate);
+            TextViewReturnDate = view.findViewById(R.id.tv_ReturnDate);
             Date todayDate = Calendar.getInstance().getTime();
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             String todayString = formatter.format(todayDate);
             TextViewReturnDate.setText(todayString);
-            ImageButton imageButtonEditReturnDate = (ImageButton) view.findViewById(R.id.ib_EditReturnDate);
+            ImageButton imageButtonEditReturnDate = view.findViewById(R.id.ib_EditReturnDate);
             imageButtonEditReturnDate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     View v2 = LayoutInflater.from(getActivity())
                             .inflate(R.layout.dialog_date,null);
-                    final DatePicker datePicker = (DatePicker) v2.findViewById(R.id.dialog_date_date_picker);
+                    final DatePicker datePicker = v2.findViewById(R.id.dialog_date_date_picker);
                     android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(getActivity());
                     alert.setView(v2);
                     alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {

@@ -21,7 +21,7 @@ class BarCodeHelper {
         Bitmap bitmap = null;
 
         try {
-            bitmap = encodeAsBitmap(barcodeData, BarcodeFormat.CODE_128, 500, 200);
+            bitmap = encodeAsBitmap(barcodeData);
 
         } catch (WriterException e) {
             e.printStackTrace();
@@ -31,7 +31,7 @@ class BarCodeHelper {
     }
 
 
-    private Bitmap encodeAsBitmap(String contents, BarcodeFormat format, int img_width, int img_height) throws WriterException {
+    private Bitmap encodeAsBitmap(String contents) throws WriterException {
         if (contents == null) {
             return null;
         }
@@ -44,7 +44,7 @@ class BarCodeHelper {
         MultiFormatWriter writer = new MultiFormatWriter();
         BitMatrix result;
         try {
-            result = writer.encode(contents, format, img_width, img_height, hints);
+            result = writer.encode(contents, BarcodeFormat.CODE_128, 500, 200, hints);
         } catch (IllegalArgumentException iae) {
             // Unsupported format
             return null;
