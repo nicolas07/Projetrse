@@ -22,7 +22,7 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
         TextView TextViewDate;
         TextView TextViewPackageNumber;
         TextView TextViewAmount;
-        TextView TextViewAdress;
+//        TextView TextViewAdress;
     }
 
     public HistoryArrayAdapter(Context context, int textViewResourceId) {
@@ -60,7 +60,7 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
             viewHolder.TextViewDate = (TextView) row.findViewById(R.id.tv_Date);
             viewHolder.TextViewPackageNumber = (TextView) row.findViewById(R.id.tv_PackageNumber);
             viewHolder.TextViewAmount = (TextView) row.findViewById(R.id.tv_Amount);
-            viewHolder.TextViewAdress = (TextView) row.findViewById(R.id.tv_Address);
+//            viewHolder.TextViewAdress = (TextView) row.findViewById(R.id.tv_Address);
             row.setTag(viewHolder);
         } else {
             viewHolder = (HistoryViewHolder)row.getTag();
@@ -69,8 +69,8 @@ public class HistoryArrayAdapter  extends ArrayAdapter<History> {
         viewHolder.TextViewDate.setText(history.getDate());
         viewHolder.TextViewPackageNumber.setText(Html.fromHtml("<u>Nombre de colis : </u>"+history.getPackagesNumber(),0));
         viewHolder.TextViewAmount.setText(history.getAmount());
-        viewHolder.TextViewAdress.setText("Adresse d'enlèvement : \n"+history.getAddress());
-        viewHolder.TextViewAdress.setLines(history.GetAddressLines()+1);
+//        viewHolder.TextViewAdress.setText("Adresse d'enlèvement : \n"+history.getAddress());
+//        viewHolder.TextViewAdress.setLines(history.GetAddressLines()+1);
         return row;
     }
 

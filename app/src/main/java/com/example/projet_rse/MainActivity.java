@@ -25,13 +25,14 @@ public class MainActivity extends AppCompatActivity
 
     // Note : https://stackoverflow.com/questions/1492554/set-transparent-background-of-an-imageview-on-android
     // Note : https://www.iconfinder.com/icons/103173/edit_new_write_icon
-//    https://www.iconfinder.com/icons/415395/box_closed_delivery_package_icon
-//    https://www.iconfinder.com/icons/3376410/avatar_circular_profil_ui_user_icon
-//    https://www.iconfinder.com/icons/1347412/history_time_timer_icon
-//    https://www.iconfinder.com/icons/134077/account_profile_user_icon
+    // Note : https://www.iconfinder.com/icons/415395/box_closed_delivery_package_icon
+    // Note : https://www.iconfinder.com/icons/3376410/avatar_circular_profil_ui_user_icon
+    // Note : https://www.iconfinder.com/icons/1347412/history_time_timer_icon
+    // Note : https://www.iconfinder.com/icons/134077/account_profile_user_icon
     // TODO: one tape go to fisrt fragment
     // TODO : Couleur Police Toolbar
     // TODO : Liste History
+    // TODO : Trier les history par date
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -42,12 +43,14 @@ public class MainActivity extends AppCompatActivity
     private Fragment fragmentHistory;
     private Fragment fragmentReturnPackage;
     private Fragment fragmentUserAccount;
+    private Fragment fragmentHome;
 
     //FOR DATAS
     // 2 - Identify each fragment with a number
-    private static final int FRAGMENT_HISTORY = 0;
-    private static final int FRAGMENT_RETURNPACKAGE = 1;
-    private static final int FRAGMENT_USERACCOUNT = 2;
+    public static final int FRAGMENT_HISTORY = 0;
+    public static final int FRAGMENT_RETURNPACKAGE = 1;
+    public static final int FRAGMENT_USERACCOUNT = 2;
+    public static final int FRAGMENT_HOME = 3;
 
     private boolean doubleBackToExitPressedOnce;
 
@@ -99,7 +102,7 @@ public class MainActivity extends AppCompatActivity
             }
 
             this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Appuyez encore une fois pour quitter", Toast.LENGTH_SHORT).show();
 
             new Handler().postDelayed(new Runnable() {
 
@@ -144,6 +147,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_useraccount:
                 this.showFragment(FRAGMENT_USERACCOUNT);
                 break;
+            case R.id.nav_home:
+                this.showFragment(FRAGMENT_HOME);
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -151,16 +157,22 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void showFragment(int fragmentIdentifier){
+    public void showFragment(int fragmentIdentifier){
         switch (fragmentIdentifier){
             case FRAGMENT_HISTORY :
                 this.showHistoryFragment();
+                this.navigationView.getMenu().getItem(2).setChecked(true);
                 break;
             case FRAGMENT_RETURNPACKAGE:
                 this.showReturnPackageFragment();
+                this.navigationView.getMenu().getItem(1).setChecked(true);
                 break;
             case FRAGMENT_USERACCOUNT:
                 this.showUserAccountFragment();
+                this.navigationView.getMenu().getItem(3).setChecked(true);
+                break;
+            case FRAGMENT_HOME:
+                this.showHomeFragment();
                 break;
             default:
                 break;
@@ -182,6 +194,11 @@ public class MainActivity extends AppCompatActivity
         this.startTransactionFragment(this.fragmentUserAccount);
     }
 
+    private void showHomeFragment(){
+        if (this.fragmentHome == null) this.fragmentHome = HomeFragment.newInstance();
+        this.startTransactionFragment(this.fragmentHome);
+    }
+
     private void startTransactionFragment(Fragment fragment){
         if (!fragment.isVisible()){
             getSupportFragmentManager().beginTransaction()
@@ -193,7 +210,7 @@ public class MainActivity extends AppCompatActivity
         Fragment visibleFragment = getSupportFragmentManager().findFragmentById(R.id.activity_main_frame_layout);
         if (visibleFragment == null){
             // 1.1 - Show News Fragment
-            this.showFragment(FRAGMENT_RETURNPACKAGE);
+            this.showFragment(FRAGMENT_HOME);
             // 1.2 - Mark as selected the menu item corresponding to NewsFragment
             this.navigationView.getMenu().getItem(0).setChecked(true);
         }
