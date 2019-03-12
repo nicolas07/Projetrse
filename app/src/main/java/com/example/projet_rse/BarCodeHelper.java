@@ -44,7 +44,7 @@ class BarCodeHelper {
         MultiFormatWriter writer = new MultiFormatWriter();
         BitMatrix result;
         try {
-            result = writer.encode(contents, BarcodeFormat.CODE_128, 500, 200, hints);
+            result = writer.encode(contents, BarcodeFormat.CODE_128, 750, 300, hints);
         } catch (IllegalArgumentException iae) {
             // Unsupported format
             return null;

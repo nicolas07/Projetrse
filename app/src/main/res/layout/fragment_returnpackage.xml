@@ -2,126 +2,211 @@
     android:id="@+id/fragment_news_rootview"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryLight">
+    android:background="@color/colorPrimaryLight"
+    android:padding="8dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="3"
+        android:paddingTop="10dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.25"
-                android:text="Adresse d'enlèvement :"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorAccent"
-                />
+    <TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1.25"
+    android:text="Adresse d'enlèvement :"
+    android:textSize="12sp"
+    android:textColor="@color/colorAccent"
+    />
 
-            <TextView
-                android:id="@+id/tv_ReturnAddress"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.25"
-                android:text="TextView"
-                android:textSize="16sp"
-                android:textColor="@color/colorAccent"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.25"
-                android:text="Nombre de colis :"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorAccent"/>
-
-            <EditText
-                android:id="@+id/et_ReturnPackageNumber"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.25"
-                android:textSize="16sp"
-                android:textColor="@color/colorAccent"
-                />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.25"
-                android:text="Date de retour :"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_gravity="center"
-                android:textColor="@color/colorAccent"
-                />
-
-            <TextView
-                android:id="@+id/tv_ReturnDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.25"
-                android:textSize="16sp"
-                android:layout_gravity="center"
-                android:textColor="@color/colorAccent"/>
-
-            <ImageButton
-                android:id="@+id/ib_EditReturnDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_edit_blue"
-                android:layout_weight="0.5"
-                android:text="Button"
-                android:background="@null"
-                android:layout_gravity="center"/>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <Button
-                android:id="@+id/bt_ValidateReturn"
-                style="@style/ButtonStyle"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:text="Valider"/>
-
-        </LinearLayout>
+    <TextView
+    android:id="@+id/tv_ReturnAddress"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1.25"
+    android:text="TextView"
+    android:textSize="16sp"
+    android:textColor="@color/colorAccent"/>
 
     </LinearLayout>
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="3"
+        android:paddingTop="10dp">
+
+    <TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1.25"
+    android:text="Nombre de colis :"
+    android:textSize="12sp"
+    android:textColor="@color/colorAccent"/>
+
+    <EditText
+    android:id="@+id/et_ReturnPackageNumber"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1.25"
+    android:textSize="16sp"
+    android:textColor="@color/colorAccent"
+    />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="3"
+        android:paddingTop="10dp">
+
+    <TextView
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1.25"
+    android:text="Date de retour :"
+    android:textSize="12sp"
+    android:layout_gravity="center"
+    android:textColor="@color/colorAccent"
+    />
+
+    <TextView
+    android:id="@+id/tv_ReturnDate"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1.25"
+    android:textSize="16sp"
+    android:layout_gravity="center"
+    android:textColor="@color/colorAccent"/>
+
+    <ImageButton
+    android:id="@+id/ib_EditReturnDate"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/ic_edit_blue"
+    android:layout_weight="0.5"
+    android:text="Button"
+    android:background="@null"
+    android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+        android:paddingTop="10dp">
+
+    <Button
+    android:id="@+id/bt_ValidateReturn"
+    style="@style/ButtonStyle"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
+    android:text="Valider"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp">
+
+
+    </LinearLayout>
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/label_ReturnAddress"-->
+        <!--style="@style/LabelTextViewStyle"-->
+        <!--android:text="Adresse d'enlèvement :" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/tv_ReturnAddress"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/label_ReturnAddress"-->
+        <!--android:text="TextView"-->
+        <!--android:textColor="@color/colorAccent"-->
+        <!--android:textSize="16sp" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/label_ReturnPackageNumber"-->
+        <!--style="@style/LabelTextViewStyle"-->
+        <!--android:layout_below="@+id/tv_ReturnAddress"-->
+        <!--android:text="Nombre de colis :" />-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/et_ReturnPackageNumber"-->
+        <!--android:layout_width="150dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/label_ReturnPackageNumber"-->
+        <!--android:textColor="@color/colorAccent"-->
+        <!--android:textSize="16sp" />-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/label_ReturnDate"-->
+        <!--style="@style/LabelTextViewStyle"-->
+        <!--android:layout_below="@+id/et_ReturnPackageNumber"-->
+        <!--android:text="Date de retour :" />-->
+
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/ll_ReturnDate"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/label_ReturnDate"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:weightSum="3">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/tv_ReturnDate"-->
+            <!--android:layout_width="150dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:textColor="@color/colorAccent"-->
+            <!--android:textSize="16sp"-->
+            <!--android:layout_weight="2.5"/>-->
+
+        <!--<ImageButton-->
+            <!--android:id="@+id/ib_EditReturnDate"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@null"-->
+            <!--android:src="@mipmap/ic_edit_blue"-->
+            <!--android:text="Button"-->
+            <!--android:layout_weight="0.5"/>-->
+
+    <!--</LinearLayout>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/bt_ValidateReturn"-->
+        <!--style="@style/ButtonStyle"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/ll_ReturnDate"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:text="Valider" />-->
 
 
 </RelativeLayout>
