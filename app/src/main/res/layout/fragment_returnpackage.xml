@@ -12,6 +12,22 @@
         android:gravity="top"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Adresse d'enlèvement :"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_ReturnAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:layout_gravity="center"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,24 +35,22 @@
             android:paddingTop="10dp"
             android:weightSum="3">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.25"
-                android:text="Adresse d'enlèvement :"
-                android:textColor="@color/colorAccent"
-                android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/tv_ReturnAddress"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1.25"
-                android:text="TextView"
-                android:textColor="@color/colorAccent"
-                android:textSize="16sp" />
 
         </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/gps"/>
+
+    </LinearLayout>
 
 
         <LinearLayout
