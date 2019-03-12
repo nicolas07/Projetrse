@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity
 
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = headerView.findViewById(R.id.tv_NavHeaderName);
-        navUsername.setText(userAccount.getName() +" "+ userAccount.getFirstName());
+        navUsername.setText(userAccount.getName() + " " + userAccount.getFirstName());
         TextView navEMail = headerView.findViewById(R.id.tv_NavHeaderEmail);
         navEMail.setText(userAccount.getEmail());
         this.configureToolBar();
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity
 
                 @Override
                 public void run() {
-                    doubleBackToExitPressedOnce=false;
+                    doubleBackToExitPressedOnce = false;
                 }
             }, 2000);
         }
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        switch(id){
+        switch (id) {
             case R.id.nav_returnPackage:
                 this.showFragment(FRAGMENT_RETURNPACKAGE);
                 break;
@@ -147,9 +147,9 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void showFragment(int fragmentIdentifier){
-        switch (fragmentIdentifier){
-            case FRAGMENT_HISTORY :
+    public void showFragment(int fragmentIdentifier) {
+        switch (fragmentIdentifier) {
+            case FRAGMENT_HISTORY:
                 this.showHistoryFragment();
                 this.navigationView.getMenu().getItem(2).setChecked(true);
                 break;
@@ -169,36 +169,38 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private void showHistoryFragment(){
+    private void showHistoryFragment() {
         if (this.fragmentHistory == null) this.fragmentHistory = HistoryFragment.newInstance();
         this.startTransactionFragment(this.fragmentHistory);
     }
 
-    private void showReturnPackageFragment(){
-        if (this.fragmentReturnPackage == null) this.fragmentReturnPackage = ReturnPackageFragment.newInstance();
+    private void showReturnPackageFragment() {
+        if (this.fragmentReturnPackage == null)
+            this.fragmentReturnPackage = ReturnPackageFragment.newInstance();
         this.startTransactionFragment(this.fragmentReturnPackage);
     }
 
-    private void showUserAccountFragment(){
-        if (this.fragmentUserAccount == null) this.fragmentUserAccount = UserAccountFragment.newInstance();
+    private void showUserAccountFragment() {
+        if (this.fragmentUserAccount == null)
+            this.fragmentUserAccount = UserAccountFragment.newInstance();
         this.startTransactionFragment(this.fragmentUserAccount);
     }
 
-    private void showHomeFragment(){
+    private void showHomeFragment() {
         if (this.fragmentHome == null) this.fragmentHome = HomeFragment.newInstance();
         this.startTransactionFragment(this.fragmentHome);
     }
 
-    private void startTransactionFragment(Fragment fragment){
-        if (!fragment.isVisible()){
+    private void startTransactionFragment(Fragment fragment) {
+        if (!fragment.isVisible()) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.activity_main_frame_layout, fragment).commit();
         }
     }
 
-    private void showFirstFragment(){
+    private void showFirstFragment() {
         Fragment visibleFragment = getSupportFragmentManager().findFragmentById(R.id.activity_main_frame_layout);
-        if (visibleFragment == null){
+        if (visibleFragment == null) {
             // 1.1 - Show News Fragment
             this.showFragment(FRAGMENT_HOME);
             // 1.2 - Mark as selected the menu item corresponding to NewsFragment
@@ -206,7 +208,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void setActionBarTitle(String title){
+    public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }
 
@@ -215,13 +217,13 @@ public class MainActivity extends AppCompatActivity
     // ---------------------
 
     // 1 - Configure Toolbar
-    private void configureToolBar(){
+    private void configureToolBar() {
         this.toolbar = findViewById(R.id.activity_main_toolbar);
         setSupportActionBar(toolbar);
     }
 
     // 2 - Configure Drawer Layout
-    private void configureDrawerLayout(){
+    private void configureDrawerLayout() {
         this.drawerLayout = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
@@ -229,7 +231,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     // 3 - Configure NavigationView
-    private void configureNavigationView(){
+    private void configureNavigationView() {
         this.navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }

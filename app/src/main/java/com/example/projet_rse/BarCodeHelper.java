@@ -16,7 +16,7 @@ class BarCodeHelper {
     private static final int WHITE = 0xFFFFFFFF;
     private static final int BLACK = 0xFF000000;
 
-    public Bitmap GenerateBarCode(){
+    public Bitmap GenerateBarCode() {
         String barcodeData = "lala";
         Bitmap bitmap = null;
 

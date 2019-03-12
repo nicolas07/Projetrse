@@ -17,12 +17,12 @@ public class History {
         Amount = CalculateAmount(packagesNumber);
     }
 
-    private String CalculateAmount(String packagesNumber){
+    private String CalculateAmount(String packagesNumber) {
         int quantity = Integer.parseInt(packagesNumber);
         double unitAmount = 0.3;
-        double sum = quantity* unitAmount;
+        double sum = quantity * unitAmount;
         DecimalFormat twoDForm = new DecimalFormat("#.##");
-        return String.valueOf(twoDForm.format(sum)+"€");
+        return String.valueOf(twoDForm.format(sum) + "€");
     }
 
     public Date getDate() {
@@ -45,16 +45,15 @@ public class History {
         return Address;
     }
 
-    public int GetAddressLines()
-    {
+    public int GetAddressLines() {
         int count = 0;
 
-        for(int i=0; i < Address.length(); i++)
-        {    if(Address.charAt(i) == '\n')
-            count++;
+        for (int i = 0; i < Address.length(); i++) {
+            if (Address.charAt(i) == '\n')
+                count++;
         }
 
-        return count+1;
+        return count + 1;
     }
 
 }

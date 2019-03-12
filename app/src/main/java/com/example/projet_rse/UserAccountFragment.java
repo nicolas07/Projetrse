@@ -81,19 +81,19 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
 
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         View vEditText = LayoutInflater.from(getActivity())
-                .inflate(R.layout.dialog_edittext,null);
+                .inflate(R.layout.dialog_edittext, null);
 
         final EditText SimpleEditText = vEditText.findViewById(R.id.et_EditDialog);
 
         alert.setView(vEditText);
-        switch (i){
+        switch (i) {
             case R.id.ib_EditAddress:
                 title = "Nouvelle Adresse : ";
                 hint = userAccount.getAddress();
                 alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
-                    String input = SimpleEditText.getText().toString();
-                    userAccount.setAddress(input);
+                        String input = SimpleEditText.getText().toString();
+                        userAccount.setAddress(input);
                     }
                 });
                 break;
@@ -143,7 +143,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                 break;
         }
         SimpleEditText.setHint(hint);
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ContextCompat.getColor(getActivity(),R.color.colorAccent));
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(ContextCompat.getColor(getActivity(), R.color.colorAccent));
         SpannableStringBuilder ssBuilder = new SpannableStringBuilder(title);
         ssBuilder.setSpan(
                 foregroundColorSpan,

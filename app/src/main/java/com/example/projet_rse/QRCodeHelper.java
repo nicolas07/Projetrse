@@ -10,13 +10,13 @@ import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 class QRCodeHelper {
 
-    public Bitmap GenerateQRCode(){
+    public Bitmap GenerateQRCode() {
 
-        String text="MIICWgIBAAKBgGLa8NE6DhepFrTg4rQGcAIro2tD3NZnwOlnr9fhg027DbCSv9C";
+        String text = "MIICWgIBAAKBgGLa8NE6DhepFrTg4rQGcAIro2tD3NZnwOlnr9fhg027DbCSv9C";
         Bitmap bitmap = null;
         MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,200,200);
+            BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE, 200, 200);
             BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
             bitmap = barcodeEncoder.createBitmap(bitMatrix);
         } catch (WriterException e) {

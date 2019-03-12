@@ -26,7 +26,7 @@ public class HomeFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         ((MainActivity) getActivity()).setActionBarTitle("Accueil");
         View view = inflater.inflate(R.layout.fragment_home, container, false);
@@ -36,8 +36,9 @@ public class HomeFragment extends Fragment {
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View textView) {
-                ((MainActivity)getActivity()).showFragment(FRAGMENT_RETURNPACKAGE);
+                ((MainActivity) getActivity()).showFragment(FRAGMENT_RETURNPACKAGE);
             }
+
             @Override
             public void updateDrawState(TextPaint ds) {
                 super.updateDrawState(ds);
@@ -56,8 +57,9 @@ public class HomeFragment extends Fragment {
         ClickableSpan clickableSpan2 = new ClickableSpan() {
             @Override
             public void onClick(View textView) {
-                ((MainActivity)getActivity()).showFragment(FRAGMENT_HISTORY);
+                ((MainActivity) getActivity()).showFragment(FRAGMENT_HISTORY);
             }
+
             @Override
             public void updateDrawState(TextPaint ds) {
                 super.updateDrawState(ds);
@@ -76,8 +78,9 @@ public class HomeFragment extends Fragment {
         ClickableSpan clickableSpan3 = new ClickableSpan() {
             @Override
             public void onClick(View textView) {
-                ((MainActivity)getActivity()).showFragment(FRAGMENT_USERACCOUNT);
+                ((MainActivity) getActivity()).showFragment(FRAGMENT_USERACCOUNT);
             }
+
             @Override
             public void updateDrawState(TextPaint ds) {
                 super.updateDrawState(ds);

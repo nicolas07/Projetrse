@@ -27,7 +27,7 @@ public class HistoryFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_history, container, false);
+        View view = inflater.inflate(R.layout.fragment_history, container, false);
 
         ((MainActivity) getActivity()).setActionBarTitle("Historique");
 
@@ -59,7 +59,7 @@ public class HistoryFragment extends Fragment {
                 android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(getActivity());
 
                 View vBarCode = LayoutInflater.from(getActivity())
-                        .inflate(R.layout.dialog_imageview,null);
+                        .inflate(R.layout.dialog_imageview, null);
 
                 TextView LegendBarCode = vBarCode.findViewById(R.id.tv_LegendBarcode);
                 ImageView BarCode = vBarCode.findViewById(R.id.iv_BarCode);

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-class HistoryArrayAdapter  extends ArrayAdapter<History> {
+class HistoryArrayAdapter extends ArrayAdapter<History> {
     private final List<History> Histories = new ArrayList<>();
 
     static class HistoryViewHolder {
@@ -35,7 +35,7 @@ class HistoryArrayAdapter  extends ArrayAdapter<History> {
         super.add(object);
     }
 
-    public void addList(List<History> histories){
+    public void addList(List<History> histories) {
         Histories.addAll(histories);
     }
 
@@ -62,11 +62,11 @@ class HistoryArrayAdapter  extends ArrayAdapter<History> {
             viewHolder.TextViewAmount = row.findViewById(R.id.tv_Amount);
             row.setTag(viewHolder);
         } else {
-            viewHolder = (HistoryViewHolder)row.getTag();
+            viewHolder = (HistoryViewHolder) row.getTag();
         }
         History history = getItem(position);
         viewHolder.TextViewDate.setText(new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(history.getDate()));
-        viewHolder.TextViewPackageNumber.setText(Html.fromHtml("<u>Nombre de colis : </u>"+history.getPackagesNumber(),0));
+        viewHolder.TextViewPackageNumber.setText(Html.fromHtml("<u>Nombre de colis : </u>" + history.getPackagesNumber(), 0));
         viewHolder.TextViewAmount.setText(history.getAmount());
         return row;
     }
