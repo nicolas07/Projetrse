@@ -3,6 +3,7 @@ package com.example.projet_rse;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity
     // Note : https://www.iconfinder.com/icons/1347412/history_time_timer_icon
     // Note : https://www.iconfinder.com/icons/134077/account_profile_user_icon
 
+    // TODO : Icone Feuille
+    // TODO : Ajouter Image Dauphine Localisation
+
+
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -43,7 +48,6 @@ public class MainActivity extends AppCompatActivity
     public static final int FRAGMENT_USERACCOUNT = 2;
     private static final int FRAGMENT_HOME = 3;
 
-    private boolean doubleBackToExitPressedOnce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,22 +91,19 @@ public class MainActivity extends AppCompatActivity
         if (this.drawerLayout.isDrawerOpen(GravityCompat.START)) {
             this.drawerLayout.closeDrawer(GravityCompat.START);
         } else {
-            if (doubleBackToExitPressedOnce) {
-                super.onBackPressed();
-                return;
-            }
-
-            this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, "Appuyez encore une fois pour quitter", Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-                    doubleBackToExitPressedOnce = false;
-                }
-            }, 2000);
+            showHomeFragment();
         }
+    }
+
+    @Override
+    public boolean onKeyLongPress(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            this.finish();
+            System.exit(0);
+            return true;
+        }
+        return super.onKeyLongPress(keyCode, event);
     }
 
     @Override
