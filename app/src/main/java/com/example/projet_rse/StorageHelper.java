@@ -63,7 +63,7 @@ class StorageHelper {
 
     public void InitData() {
 
-        UserAccount userAccount = new UserAccount("DUPONT", "Marcel", "28 rue Dupont \n 75020 Paris", "azerty", "m.dupont@gmail.com");
+        UserAccount userAccount = new UserAccount("DUPONT", "Marcel", "28 rue Dupont\n75020 Paris", "azerty", "m.dupont@gmail.com");
         StoreUserAccount(userAccount);
 
         List<History> histories = new ArrayList<>();
