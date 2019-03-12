@@ -5,6 +5,11 @@
     android:background="@color/colorPrimaryLight"
     android:orientation="vertical">
 
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_ecolopli_logo_t"
+        android:layout_gravity="center"/>
 
     <TextView
         android:id="@+id/tv_Title"
@@ -12,7 +17,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:gravity="center"
-        android:text="Bienvenue sur l'application Ecolo\'Pli"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -24,7 +28,7 @@
         android:layout_gravity="center"
         android:gravity="left"
         android:orientation="vertical"
-        android:paddingTop="15dp">
+        android:paddingTop="40dp">
 
         <LinearLayout
             android:id="@+id/ll_ReturnPackage"
@@ -33,8 +37,8 @@
             android:clickable="true">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@mipmap/ic_package"
                 android:tint="@color/colorAccent"/>
 
@@ -43,7 +47,9 @@
                 android:layout_height="wrap_content"
                 android:text="Retourner un colis"
                 android:textColor="@color/colorAccent"
-                android:paddingLeft="8dp"/>
+                android:paddingLeft="8dp"
+                android:textSize="16sp"
+                android:layout_gravity="center"/>
 
         </LinearLayout>
 
@@ -52,11 +58,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:paddingTop="5dp">
+            android:paddingTop="40dp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@mipmap/ic_history"
                 android:tint="@color/colorAccent"/>
 
@@ -65,7 +71,9 @@
                 android:layout_height="wrap_content"
                 android:text="Historique"
                 android:textColor="@color/colorAccent"
-                android:paddingLeft="8dp"/>
+                android:paddingLeft="8dp"
+                android:textSize="16sp"
+                android:layout_gravity="center"/>
 
         </LinearLayout>
 
@@ -74,11 +82,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:paddingTop="5dp">
+            android:paddingTop="40dp">
 
             <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@mipmap/ic_profile_2"
                 android:tint="@color/colorAccent"/>
 
@@ -87,7 +95,9 @@
                 android:layout_height="wrap_content"
                 android:text="Profil"
                 android:textColor="@color/colorAccent"
-                android:paddingLeft="8dp"/>
+                android:paddingLeft="8dp"
+                android:textSize="16sp"
+                android:layout_gravity="center"/>
 
         </LinearLayout>
 

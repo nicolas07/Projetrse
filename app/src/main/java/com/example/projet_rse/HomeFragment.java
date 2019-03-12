@@ -9,6 +9,7 @@ import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,69 +32,6 @@ public class HomeFragment extends Fragment {
 
         ((MainActivity) getActivity()).setActionBarTitle("Accueil");
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
-//        String text = " - Pour retourner des colis, cliquez ici";
-//        SpannableString ss = new SpannableString(text);
-//        ClickableSpan clickableSpan = new ClickableSpan() {
-//            @Override
-//            public void onClick(View textView) {
-//                ((MainActivity) getActivity()).showFragment(FRAGMENT_RETURNPACKAGE);
-//            }
-//
-//            @Override
-//            public void updateDrawState(TextPaint ds) {
-//                super.updateDrawState(ds);
-//                ds.setUnderlineText(false);
-//            }
-//        };
-//        ss.setSpan(clickableSpan, text.indexOf(","), text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//
-//        TextView textView = view.findViewById(R.id.tv_returnPackage);
-//        textView.setText(ss);
-//        textView.setMovementMethod(LinkMovementMethod.getInstance());
-//        textView.setHighlightColor(Color.TRANSPARENT);
-//
-//        String text2 = " - Pour consulter votre historique, cliquez ici";
-//        SpannableString ss2 = new SpannableString(text2);
-//        ClickableSpan clickableSpan2 = new ClickableSpan() {
-//            @Override
-//            public void onClick(View textView) {
-//                ((MainActivity) getActivity()).showFragment(FRAGMENT_HISTORY);
-//            }
-//
-//            @Override
-//            public void updateDrawState(TextPaint ds) {
-//                super.updateDrawState(ds);
-//                ds.setUnderlineText(false);
-//            }
-//        };
-//        ss2.setSpan(clickableSpan2, text2.indexOf(","), text2.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//
-//        TextView textView2 = view.findViewById(R.id.tv_History);
-//        textView2.setText(ss2);
-//        textView2.setMovementMethod(LinkMovementMethod.getInstance());
-//        textView2.setHighlightColor(Color.TRANSPARENT);
-//
-//        String text3 = " - Pour consulter votre profil, cliquez ici";
-//        SpannableString ss3 = new SpannableString(text3);
-//        ClickableSpan clickableSpan3 = new ClickableSpan() {
-//            @Override
-//            public void onClick(View textView) {
-//                ((MainActivity) getActivity()).showFragment(FRAGMENT_USERACCOUNT);
-//            }
-//
-//            @Override
-//            public void updateDrawState(TextPaint ds) {
-//                super.updateDrawState(ds);
-//                ds.setUnderlineText(false);
-//            }
-//        };
-//        ss3.setSpan(clickableSpan3, text3.indexOf(","), text3.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-//
-//        TextView textView3 = view.findViewById(R.id.tv_Profil);
-//        textView3.setText(ss3);
-//        textView3.setMovementMethod(LinkMovementMethod.getInstance());
-//        textView3.setHighlightColor(Color.TRANSPARENT);
 
         LinearLayout LlReturnPackage = view.findViewById(R.id.ll_ReturnPackage);
         LinearLayout LlHistory = view.findViewById(R.id.ll_History);
@@ -120,6 +58,13 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        TextView textView = view.findViewById(R.id.tv_Title);
+
+        SpannableString spannableString = new SpannableString("Bienvenue sur l'application " + getResources().getString(R.string.app_name));
+        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.colorLogo)),28,29,0);
+        spannableString.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.colorLogo)),34,35,0);
+
+        textView.setText(spannableString);
 
         return view;
     }
