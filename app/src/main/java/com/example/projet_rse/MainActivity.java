@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity
     // TODO : Somme gain
     // TODO : Saisie adresse edittext + changer icon par calendrier
     // TODO : Rounded image profile
-    // TODO : Mise à jour drawer layout si modif nom
 
 
     private Toolbar toolbar;
@@ -59,24 +58,42 @@ public class MainActivity extends AppCompatActivity
 
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        StorageHelper storageHelper = new StorageHelper(getApplicationContext());
+        final StorageHelper storageHelper = new StorageHelper(getApplicationContext());
         storageHelper.InitData();
         UserAccount userAccount = storageHelper.GetUserAccount();
 
         View headerView = navigationView.getHeaderView(0);
-        TextView navUsername = headerView.findViewById(R.id.tv_NavHeaderName);
+        final TextView navUsername = headerView.findViewById(R.id.tv_NavHeaderName);
         navUsername.setText(userAccount.getName());
-        TextView navEMail = headerView.findViewById(R.id.tv_NavHeaderEmail);
+        final TextView navEMail = headerView.findViewById(R.id.tv_NavHeaderEmail);
         navEMail.setText(userAccount.getEmail());
+
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        //drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        drawer.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+                if (newState == DrawerLayout.STATE_SETTLING) {
+                    if (!drawer.isDrawerOpen(GravityCompat.START)) {
+                        // Drawer started opening
+                        UserAccount userAccount = storageHelper.GetUserAccount();
+                        navUsername.setText(userAccount.getName());
+                        navEMail.setText(userAccount.getEmail());
+                    } else {
+                        // Drawer started closing
+                    }
+                }
+            }
+        });
+
         this.configureToolBar();
 
         this.configureDrawerLayout();
