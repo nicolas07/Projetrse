@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity
     // Note : https://www.iconfinder.com/icons/134077/account_profile_user_icon
 
     // TODO : Somme gain
-    // TODO : Saisie adresse edittext + changer icon par calendrier
+    // TODO : Vérifier dialog datePicker
     // TODO : Rounded image profile
 
 

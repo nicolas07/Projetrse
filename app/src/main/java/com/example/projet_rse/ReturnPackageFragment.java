@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -76,7 +77,7 @@ public class ReturnPackageFragment extends Fragment {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String todayString = formatter.format(todayDate);
         TextViewReturnDate.setText(todayString);
-        ImageButton imageButtonEditReturnDate = view.findViewById(R.id.ib_EditReturnDate);
+        ImageView imageButtonEditReturnDate = view.findViewById(R.id.ib_EditReturnDate);
         imageButtonEditReturnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
