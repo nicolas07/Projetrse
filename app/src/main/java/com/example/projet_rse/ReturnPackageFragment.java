@@ -44,6 +44,9 @@ public class ReturnPackageFragment extends Fragment {
         EditTextReturnPackageNumber.setText("0");
         UserAccount userAccount = storageHelper.GetUserAccount();
 
+        TextViewReturnDate = view.findViewById(R.id.tv_ReturnDate);
+        Date todayDate = Calendar.getInstance().getTime();
+
         TextViewReturnAddress = view.findViewById(R.id.tv_ReturnAddress);
         TextViewReturnAddress.setText(userAccount.getAddress());
         TextViewReturnAddress.setLines(userAccount.GetAddressLines());
@@ -68,12 +71,15 @@ public class ReturnPackageFragment extends Fragment {
                     message = "Une erreur s'est produite";
                 }
                 Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+                EditTextReturnPackageNumber.setText("0");
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                String todayString = formatter.format(Calendar.getInstance().getTime() );
+                TextViewReturnDate.setText(todayString);
 
 
             }
         });
-        TextViewReturnDate = view.findViewById(R.id.tv_ReturnDate);
-        Date todayDate = Calendar.getInstance().getTime();
+
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         String todayString = formatter.format(todayDate);
         TextViewReturnDate.setText(todayString);
