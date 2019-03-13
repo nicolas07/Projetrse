@@ -64,9 +64,6 @@ class StorageHelper {
 
     public void InitData() {
 
-        UserAccount userAccount = new UserAccount("ILLIG", "Françoise", "Université Paris-Daphine\nPlace du Maréchal de Lattre de Tassigny\n75016 Paris", "azerty", "f.illig@gmail.com");
-        StoreUserAccount(userAccount);
-
         List<History> histories = new ArrayList<>();
 
         for (int i = 0; i < 10; i++) {
@@ -74,6 +71,11 @@ class StorageHelper {
             int num = r.nextInt(6 - 1) + 1;
             histories.add(new History(new RandomDateGenerator().Generate(), String.valueOf(num), null));
         }
+
+        UserAccount userAccount = new UserAccount("ILLIG Françoise", "Université Paris-Daphine\nPlace du Maréchal de Lattre de Tassigny\n75016 Paris", "azerty", "f.illig@gmail.com", "0€");
+        StoreUserAccount(userAccount);
+
+
         StoreHistories(histories);
 
     }

@@ -1,0 +1,241 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_news_rootview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight"
+    android:gravity="top"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/test"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_centerHorizontal="true"/>
+
+
+    <LinearLayout
+        android:layout_below="@+id/test"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:gravity="top"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:id="@+id/tv_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"/>
+
+            <ImageView
+                android:id="@+id/ib_EditName"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:src="@mipmap/ic_edit_blue"
+                android:tint="@color/colorAccent"
+                android:clickable="true"
+                android:paddingLeft="10dp"/>
+
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:paddingTop="10dp"-->
+            <!--&gt;-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="Prénom :"-->
+                <!--android:textColor="@color/colorAccent"-->
+                <!--android:textSize="12sp" />-->
+
+            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/tv_FirstName"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_gravity="center"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textColor="@color/colorAccent"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textSize="16sp" />&ndash;&gt;-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/ib_EditFirstName"-->
+                <!--android:layout_width="10dp"-->
+                <!--android:layout_height="10dp"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:background="@null"-->
+                <!--android:src="@mipmap/ic_edit_blue"-->
+                <!--android:text="Button"-->
+                <!--android:clickable="true"/>-->
+
+        <!--</LinearLayout>-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:weightSum="3"
+            >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_gravity="left"
+                android:src="@mipmap/ic_euro"
+                android:tint="@color/colorAccent"
+                android:layout_weight="0.3"/>
+
+            <TextView
+                android:id="@+id/tv_SumAmount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2.7"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"/>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:weightSum="3"
+            >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_password"
+                android:tint="@color/colorAccent"
+                android:layout_weight="0.3"/>
+
+            <TextView
+                android:id="@+id/tv_Password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="textPassword"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:layout_weight="2.4"/>
+
+            <ImageView
+                android:id="@+id/ib_EditPassword"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_gravity="top"
+                android:layout_weight="0.3"
+                android:background="@null"
+                android:src="@mipmap/ic_edit_blue"
+                android:tint="@color/colorAccent"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:weightSum="3"
+            >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_email"
+                android:tint="@color/colorAccent"
+                android:layout_weight="0.3"/>
+
+            <TextView
+                android:id="@+id/tv_EMail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:layout_weight="2.4"/>
+
+            <ImageView
+                android:id="@+id/ib_EditEMail"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:src="@mipmap/ic_edit_blue"
+                android:tint="@color/colorAccent"
+                android:text="Button"
+                android:layout_weight="0.3"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="20dp"
+            android:weightSum="3"
+            >
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_gravity="left"
+                android:src="@mipmap/ic_location"
+                android:tint="@color/colorAccent"
+                android:layout_weight="0.3"/>
+
+            <TextView
+                android:id="@+id/tv_Address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:layout_weight="2.4"/>
+
+            <ImageView
+                android:id="@+id/ib_EditAddress"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_gravity="top"
+                android:background="@null"
+                android:src="@mipmap/ic_edit_blue"
+                android:tint="@color/colorAccent"
+                android:layout_weight="0.3"
+                android:clickable="true"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</RelativeLayout>

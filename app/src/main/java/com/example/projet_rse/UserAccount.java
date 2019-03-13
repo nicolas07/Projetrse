@@ -3,10 +3,11 @@ package com.example.projet_rse;
 public class UserAccount {
 
     private String Name;
-    private String FirstName;
+//    private String FirstName;
     private String Address;
     private String Password;
     private String Email;
+    private String SumAmount;
 
     public String getName() {
         return Name;
@@ -16,13 +17,13 @@ public class UserAccount {
         Name = name;
     }
 
-    public String getFirstName() {
-        return FirstName;
-    }
-
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
-    }
+//    public String getFirstName() {
+//        return FirstName;
+//    }
+//
+//    public void setFirstName(String firstName) {
+//        FirstName = firstName;
+//    }
 
     public String getAddress() {
         return Address;
@@ -48,12 +49,16 @@ public class UserAccount {
         Email = email;
     }
 
-    public UserAccount(String name, String firstName, String address, String password, String email) {
+    public String getSumAmount() {
+        return SumAmount;
+    }
+
+    public UserAccount(String name, String address, String password, String email, String sumAmount) {
         Name = name;
-        FirstName = firstName;
         Address = address;
         Password = password;
         Email = email;
+        SumAmount = sumAmount;
     }
 
     public int GetAddressLines() {

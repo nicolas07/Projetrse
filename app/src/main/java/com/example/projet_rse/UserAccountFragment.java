@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class UserAccountFragment extends Fragment implements View.OnClickListener {
@@ -24,6 +25,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
     private TextView TextViewAddress;
     private TextView TextViewEmail;
     private TextView TextViewPassword;
+    private TextView TextViewSumAmount;
 
     private UserAccount userAccount;
     private StorageHelper storageHelper;
@@ -42,29 +44,31 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
         userAccount = storageHelper.GetUserAccount();
 
 
-        View view = inflater.inflate(R.layout.fragment_useraccount, container, false);
+        View view = inflater.inflate(R.layout.fragment_useraccount_icon, container, false);
         TextViewName = view.findViewById(R.id.tv_Name);
-        TextViewFirstName = view.findViewById(R.id.tv_FirstName);
+//        TextViewFirstName = view.findViewById(R.id.tv_FirstName);
         TextViewAddress = view.findViewById(R.id.tv_Address);
         TextViewEmail = view.findViewById(R.id.tv_EMail);
         TextViewPassword = view.findViewById(R.id.tv_Password);
+        TextViewSumAmount = view.findViewById(R.id.tv_SumAmount);
 
         TextViewName.setText(userAccount.getName());
-        TextViewFirstName.setText(userAccount.getFirstName());
+//        TextViewFirstName.setText(userAccount.getFirstName());
         TextViewAddress.setText(userAccount.getAddress());
         TextViewAddress.setLines(userAccount.GetAddressLines());
         TextViewEmail.setText(userAccount.getEmail());
         TextViewPassword.setText(userAccount.getPassword());
+        TextViewSumAmount.setText(userAccount.getSumAmount());
 
-        ImageButton imageButtonEditName = view.findViewById(R.id.ib_EditName);
+        ImageView imageButtonEditName = view.findViewById(R.id.ib_EditName);
         imageButtonEditName.setOnClickListener(this);
-        ImageButton imageButtonEditFirstName = view.findViewById(R.id.ib_EditFirstName);
-        imageButtonEditFirstName.setOnClickListener(this);
-        ImageButton imageButtonEditAddress = view.findViewById(R.id.ib_EditAddress);
+//        ImageView imageButtonEditFirstName = view.findViewById(R.id.ib_EditFirstName);
+//        imageButtonEditFirstName.setOnClickListener(this);
+        ImageView imageButtonEditAddress = view.findViewById(R.id.ib_EditAddress);
         imageButtonEditAddress.setOnClickListener(this);
-        ImageButton imageButtonEditEmail = view.findViewById(R.id.ib_EditEMail);
+        ImageView imageButtonEditEmail = view.findViewById(R.id.ib_EditEMail);
         imageButtonEditEmail.setOnClickListener(this);
-        ImageButton imageButtonEditPassword = view.findViewById(R.id.ib_EditPassword);
+        ImageView imageButtonEditPassword = view.findViewById(R.id.ib_EditPassword);
         imageButtonEditPassword.setOnClickListener(this);
 
         return view;
@@ -108,14 +112,14 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                 });
                 break;
             case R.id.ib_EditFirstName:
-                title = "Nouveau Prénom :";
-                hint = userAccount.getFirstName();
-                alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        String input = SimpleEditText.getText().toString();
-                        userAccount.setFirstName(input);
-                    }
-                });
+//                title = "Nouveau Prénom :";
+//                hint = userAccount.getFirstName();
+//                alert.setPositiveButton("Valider", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int whichButton) {
+//                        String input = SimpleEditText.getText().toString();
+//                        userAccount.setFirstName(input);
+//                    }
+//                });
                 break;
             case R.id.ib_EditName:
                 title = "Nouveau Nom :";
@@ -165,7 +169,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
                 storageHelper.StoreUserAccount(userAccount);
 
                 TextViewName.setText(userAccount.getName());
-                TextViewFirstName.setText(userAccount.getFirstName());
+                //TextViewFirstName.setText(userAccount.getFirstName());
                 TextViewAddress.setText(userAccount.getAddress());
                 TextViewAddress.setLines(userAccount.GetAddressLines());
                 TextViewEmail.setText(userAccount.getEmail());

@@ -26,8 +26,10 @@ public class MainActivity extends AppCompatActivity
     // Note : https://www.iconfinder.com/icons/1347412/history_time_timer_icon
     // Note : https://www.iconfinder.com/icons/134077/account_profile_user_icon
 
-    // TODO : Icone Feuille
-    // TODO : Ajouter Image Dauphine Localisation
+    // TODO : Somme gain
+    // TODO : Saisie adresse edittext + changer icon par calendrier
+    // TODO : Rounded image profile
+    // TODO : Mise à jour drawer layout si modif nom
 
 
     private Toolbar toolbar;
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity
 
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = headerView.findViewById(R.id.tv_NavHeaderName);
-        navUsername.setText(userAccount.getName() + " " + userAccount.getFirstName());
+        navUsername.setText(userAccount.getName());
         TextView navEMail = headerView.findViewById(R.id.tv_NavHeaderEmail);
         navEMail.setText(userAccount.getEmail());
         this.configureToolBar();
