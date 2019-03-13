@@ -58,7 +58,7 @@ public class UserAccountFragment extends Fragment implements View.OnClickListene
         TextViewAddress.setLines(userAccount.GetAddressLines());
         TextViewEmail.setText(userAccount.getEmail());
         TextViewPassword.setText(userAccount.getPassword());
-        TextViewSumAmount.setText(userAccount.getSumAmount());
+        TextViewSumAmount.setText(userAccount.getSumAmountString());
 
         ImageView imageButtonEditName = view.findViewById(R.id.ib_EditName);
         imageButtonEditName.setOnClickListener(this);

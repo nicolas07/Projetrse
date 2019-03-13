@@ -72,7 +72,12 @@ class StorageHelper {
             histories.add(new History(new RandomDateGenerator().Generate(), String.valueOf(num), null));
         }
 
-        UserAccount userAccount = new UserAccount("ILLIG Françoise", "Université Paris-Daphine\nPlace du Maréchal de Lattre de Tassigny\n75016 Paris", "azerty", "f.illig@gmail.com", "0€");
+        double sum = 0;
+        for (History h: histories) {
+            sum = sum + h.getAmount();
+        }
+
+        UserAccount userAccount = new UserAccount("ILLIG Françoise", "Université Paris-Daphine\nPlace du Maréchal de Lattre de Tassigny\n75016 Paris", "azerty", "f.illig@gmail.com", sum);
         StoreUserAccount(userAccount);
 
 

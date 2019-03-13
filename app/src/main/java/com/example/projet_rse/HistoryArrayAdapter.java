@@ -67,7 +67,7 @@ class HistoryArrayAdapter extends ArrayAdapter<History> {
         History history = getItem(position);
         viewHolder.TextViewDate.setText(new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(history.getDate()));
         viewHolder.TextViewPackageNumber.setText(Html.fromHtml("<u>Nombre de colis : </u>" + history.getPackagesNumber(), 0));
-        viewHolder.TextViewAmount.setText(history.getAmount());
+        viewHolder.TextViewAmount.setText(history.getStringAmount());
         return row;
     }
 

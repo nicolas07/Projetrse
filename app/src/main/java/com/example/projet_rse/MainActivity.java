@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity
     // Note : https://www.iconfinder.com/icons/1347412/history_time_timer_icon
     // Note : https://www.iconfinder.com/icons/134077/account_profile_user_icon
 
-    // TODO : Somme gain
     // TODO : Vérifier dialog datePicker
     // TODO : Rounded image profile
 

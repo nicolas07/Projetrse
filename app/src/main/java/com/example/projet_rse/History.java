@@ -7,7 +7,7 @@ public class History {
 
     private java.util.Date Date;
     private String PackagesNumber;
-    private String Amount;
+    private Double Amount;
     private String Address;
 
     public History(Date date, String packagesNumber, String address) {
@@ -17,12 +17,12 @@ public class History {
         Amount = CalculateAmount(packagesNumber);
     }
 
-    private String CalculateAmount(String packagesNumber) {
+    private Double CalculateAmount(String packagesNumber) {
         int quantity = Integer.parseInt(packagesNumber);
         double unitAmount = 0.3;
         double sum = quantity * unitAmount;
-        DecimalFormat twoDForm = new DecimalFormat("#.##");
-        return String.valueOf(twoDForm.format(sum) + "€");
+        return sum;
+
     }
 
     public Date getDate() {
@@ -37,9 +37,12 @@ public class History {
         return PackagesNumber;
     }
 
-    public String getAmount() {
-        return Amount;
+    public String getStringAmount() {
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return String.valueOf(twoDForm.format(Amount) + "€");
     }
+
+    public Double getAmount(){return Amount;}
 
     public String getAddress() {
         return Address;

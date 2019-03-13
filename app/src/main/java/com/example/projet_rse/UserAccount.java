@@ -1,5 +1,7 @@
 package com.example.projet_rse;
 
+import java.text.DecimalFormat;
+
 public class UserAccount {
 
     private String Name;
@@ -7,7 +9,7 @@ public class UserAccount {
     private String Address;
     private String Password;
     private String Email;
-    private String SumAmount;
+    private Double SumAmount;
 
     public String getName() {
         return Name;
@@ -49,11 +51,17 @@ public class UserAccount {
         Email = email;
     }
 
-    public String getSumAmount() {
+    public Double getSumAmount() {
         return SumAmount;
     }
 
-    public UserAccount(String name, String address, String password, String email, String sumAmount) {
+    public String getSumAmountString() {
+
+        DecimalFormat twoDForm = new DecimalFormat("#.##");
+        return String.valueOf(twoDForm.format(SumAmount) + "€");
+    }
+
+    public UserAccount(String name, String address, String password, String email, Double sumAmount) {
         Name = name;
         Address = address;
         Password = password;
