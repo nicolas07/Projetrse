@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity
     // Note : https://www.iconfinder.com/icons/134077/account_profile_user_icon
 
     // TODO : Vérifier dialog datePicker
-    // TODO : Rounded image profile
 
 
     private Toolbar toolbar;
